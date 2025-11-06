@@ -27,6 +27,6 @@ cd portal-nova-sat-training
 npm install
 
 ### 3️⃣ Rodar localmente
-ng serve
+npm start
 
 Acesse em: http://localhost:4200
