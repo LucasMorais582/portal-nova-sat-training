@@ -1,6 +1,6 @@
 # 🌐 Portal Nova SAT Training
 
-Repositório criado para **estudo e simulação do Portal da Nova SAT**, com o objetivo de proporcionar um ambiente de prática e aprendizado em **Angular, HTML, CSS e JavaScript**.  
+Repositório criado para **estudo e simulação do Portal da Nova SAT**, com o objetivo de proporcionar um ambiente de prática e aprendizado em **Angular, HTML, CSS e TypeScript**.
 O projeto serve como laboratório para que novos integrantes da equipe se familiarizem com o desenvolvimento front-end e a estrutura de um portal moderno.
 
 ---
