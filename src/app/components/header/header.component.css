@@ -1,0 +1,13 @@
+.container-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c1c34;
+  color: #ffffff;
+}
+
+.imagem {
+  height: 100px;
+  width: auto;
+}
