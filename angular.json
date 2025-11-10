@@ -23,6 +23,11 @@
             "assets": [
               {
                 "glob": "**/*",
+                "input": "src/app/assets",
+                "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
                 "input": "public"
               }
             ],
@@ -79,6 +84,7 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
+              "src/app/assets",
               {
                 "glob": "**/*",
                 "input": "public"

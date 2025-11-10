@@ -1,6 +1,7 @@
 .home-container{
   display: flex;
   min-height: 100vh;
+  background-color: #49859c;
 }
 
 .area-conteudo {
@@ -33,4 +34,8 @@ app-card {
 .logo {
   width: 200px;
   margin-top: 20px;
+}
+
+.texto-vindas {
+  padding: 25px;
 }

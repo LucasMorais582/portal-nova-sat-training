@@ -7,7 +7,7 @@
 .sidebar-content{
   width: 200px;
   height: 100vh;
-  background-color: rgb(41, 86, 155);
+  background-color:#1c1c34;
   color: rgb(255, 255, 255);
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
@@ -37,7 +37,7 @@
 }
 
 .toggle-button {
-  background-color: rgb(41, 86, 155);
+  background-color:#1c1c34;
   color: rgb(255, 255, 255);
   cursor: pointer;
   display: flex;
@@ -49,4 +49,9 @@
 
 .toggle-button:hover{
   background-color: rgb(0, 36, 59);
+}
+
+.logo {
+  width: 150px;
+  margin-bottom: 20px;
 }
