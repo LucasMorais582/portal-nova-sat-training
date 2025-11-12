@@ -3,12 +3,13 @@ import { MatButtonModule} from '@angular/material/button';
 import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from "@angular/router";
 
 
 
 @Component({
   selector: 'app-sidenav',
-  imports: [MatButtonModule, MatSidenavModule, MatListModule,CommonModule],
+  imports: [MatButtonModule, MatSidenavModule, MatListModule, CommonModule, RouterLink],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.css'
 })
@@ -29,5 +30,6 @@ showFiller: boolean = true;
       this.showFiller = true;
     }
     console.log(this.showFiller);
+
 }
 }

@@ -1,13 +1,13 @@
 <app-header></app-header>
 <div class="home-container">
   <div class="area-conteudo">
-    <app-sidenav></app-sidenav>
-    <div class="conteudo">
+    <app-sidenav (linkClicked)="closeSidenav()"></app-sidenav>
+
+    <div class="incio">
       <h2 class="texto-vindas">Bem-vindo ao Portal Nova Sat Training !!!</h2>
-      <div class="card">
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
+      <div class="conteudo">
+        <router-outlet></router-outlet>
+
     </div>
 
     </div>

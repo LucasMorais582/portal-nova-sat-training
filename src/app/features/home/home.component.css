@@ -9,7 +9,7 @@
   width: 100%;
 }
 
-.conteudo {
+.inicio {
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -21,7 +21,7 @@ app-sidebar {
   flex-shrink: 0;
 }
 
-.conteudo .card {
+.inicio .card {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;

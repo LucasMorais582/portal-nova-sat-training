@@ -1,10 +1,18 @@
 <mat-drawer-container class="container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side">
     <mat-nav-list class="nav-list">
-      <a mat-list-item routerLink="/">
+      <a mat-list-item
+       [routerLink]="['/dashboard']"
+          routerLinkActive="active"
+          class="nav-link">
         <i class="material-icons">home</i>HOME
       </a>
-      <a mat-list-item routerLink="/">
+      <a mat-list-item
+        [routerLink]="['/card']"
+          routerLinkActive="active"
+          class="nav-link"
+
+      >
         <i class="material-icons">work</i>Técnico
       </a>
       <a mat-list-item routerLink="/">
