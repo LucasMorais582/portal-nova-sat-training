@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-
+  @Input() cardJson: object = {
+    title: 'Default Title',
+    description: 'Default Description',
+    imageUrl: 'https://via.placeholder.com/150',
+    linkUrl: '#'
+  };
 }
