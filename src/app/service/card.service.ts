@@ -18,5 +18,15 @@ export class CardService {
     ];
   }
 
+  apagar(cardId: number) {
+    // Simula uma chamada HTTP para apagar o card
+    return {
+      subscribe: (callback: (res: any) => void) => {
+        console.log(`Card with ID ${cardId} deleted.`);
+        callback({ success: true });
+      }
+    };
+  }
+
 
 }

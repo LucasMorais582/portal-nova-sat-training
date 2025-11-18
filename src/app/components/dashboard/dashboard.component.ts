@@ -17,6 +17,7 @@ export class DashboardComponent {
 
     cards = [
     { title: 'Ordens de Serviço Abertas', value: '08', icon: 'assignment', color: 'text-orange' },
+    { title: 'Ordens de Serviço Abertas', value: '08', icon: 'assignment', color: 'text-orange' },
     ];
 
   public barChartData: ChartConfiguration<'bar'>['data'] = {

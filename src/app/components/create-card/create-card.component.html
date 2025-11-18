@@ -1,0 +1,18 @@
+<form (ngSubmit)="createCard()" #cardForm="ngForm">
+  <div>
+    <label for="title">Título:</label>
+    <input id="title" name="title" [(ngModel)]="card.title" required />
+  </div>
+  <div>
+    <label for="description">Descrição:</label>
+    <input id="description" name="description" [(ngModel)]="card.description" required />
+  </div>
+  <div>
+    <label for="icon">Ícone:</label>
+    <input id="icon" type="file" (change)="onFileSelected($event)" accept="image/*" />
+    <div *ngIf="iconPreview">
+      <img [src]="iconPreview" alt="Pré-visualização do ícone" width="64" height="64" />
+    </div>
+  </div>
+  <button type="submit" [disabled]="!cardForm.form.valid">Criar Card</button>
+</form>
