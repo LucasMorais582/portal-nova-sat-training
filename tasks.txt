@@ -210,3 +210,189 @@ Ensinar boas práticas de documentação.
 README profissional.
 
 ---
+
+# ✅ **Exercício 9 — Criar um Serviço de Autenticação (Fake Login)**
+
+### 🎯 Objetivo:
+
+Introduzir conceitos reais de login, services, programação assíncrona, guards e fluxo de autenticação.
+
+### 🧩 Tarefas:
+
+1. Criar um formulário de login com email e senha.
+2. Criar o serviço `auth.service.ts`:
+
+   * Método `login()` que retorna uma Promise ou Observable simulando API (delay de 1–2s).
+
+3. Salvar um token falso no `localStorage` ao logar.
+4. Criar um **AuthGuard** que bloqueia acesso ao dashboard se não estiver logado.
+5. Redirecionar para `/login` se tentar entrar sem permissão.
+
+### 🎯 Entrega esperada:
+
+Fluxo de login básico funcional, com rotas protegidas.
+
+---
+
+# ✅ **Exercício 10 — Criar Interceptor para Logs de Requisições**
+
+### 🎯 Objetivo:
+
+Aprender sobre interceptors, uma parte essencial de projetos Angular reais.
+
+### 🧩 Tarefas:
+
+1. Gerar interceptor:
+
+   ```
+   ng g interceptor core/http-logger
+   ```
+
+2. Logar no console:
+
+   * URL da requisição
+   * tempo de resposta
+   * status
+
+3. Mostrar `console.warn` quando um erro HTTP ocorrer.
+
+### Resultado:
+
+Mais consciência sobre ciclo de requisições HTTP.
+
+---
+
+# ✅ **Exercício 11 — Criar um CRUD Completo (Mockado)**
+
+### 🎯 Objetivo:
+
+Levar o aluno ao ponto mais próximo de um projeto real, com manipulação de dados.
+
+### 🧩 Tarefas:
+
+1. Criar uma página `/usuarios` listando usuários.
+2. Criar componentes:
+
+   * `usuarios-list`
+   * `usuarios-form`
+3. Criar serviço `usuarios.service.ts` usando JSON em `assets/users.json`.
+4. Implementar:
+
+   * listar
+   * adicionar
+   * editar
+   * deletar
+5. Usar **Input() e Output()** entre componentes.
+
+### Resultado:
+
+Fundamentos essenciais para qualquer aplicação real.
+
+---
+
+# ✅ **Exercício 12 — Modal Reutilizável**
+
+### 🎯 Objetivo:
+
+Aprender componentização mais profunda.
+
+### 🧩 Tarefas:
+
+1. Criar o componente:
+
+   ```
+   ng g c shared/modal
+   ```
+2. Permitir que receba:
+
+   * título
+   * conteúdo via `ng-content`
+3. Usar o modal em:
+
+   * confirmação de exclusão
+   * detalhes de usuário
+
+### Resultado:
+
+Componentes reutilizáveis avançados.
+
+---
+
+# ✅ **Exercício 13 — Pagination e Search no CRUD**
+
+### 🎯 Objetivo:
+
+Treinar manipulação de arrays, lógica e UX.
+
+### 🧩 Tarefas:
+
+1. Criar um campo de pesquisa que filtra a lista.
+2. Criar paginação manual:
+
+   * 5 itens por página
+3. Botões:
+
+   * Próxima página
+   * Página anterior
+
+### Resultado:
+
+Capacidade de resolver problemas reais de listagem.
+
+---
+
+# ✅ **Exercício 14 — Consumo de API Externa Real**
+
+### 🎯 Objetivo:
+
+Finalmente sair do mock e consumir um endpoint real.
+
+### 🧩 Sugestão de API:
+
+```
+https://jsonplaceholder.typicode.com/users
+```
+
+### 🧩 Tarefas:
+
+1. Criar serviço `api.service.ts`
+2. Consumir dados reais e exibir numa página nova `/externo`
+3. Tratar:
+
+   * loading
+   * erro
+   * retry opcional
+
+### Resultado:
+
+Primeiro contato com API real.
+
+---
+
+# ✅ **Exercício 15 — Tema Dark/Light (com armazenamento local)**
+
+### 🎯 Objetivo:
+
+Ensinar CSS avançado + estado + localStorage.
+
+### 🧩 Tarefas:
+
+1. Criar toggle “Modo Escuro”.
+2. Alterar variáveis CSS:
+
+   ```css
+   :root {
+     --bg: #fff;
+     --text: #000;
+   }
+
+   .dark {
+     --bg: #121212;
+     --text: #fff;
+   }
+   ```
+3. Persistir a escolha no localStorage.
+
+---
+
+# 🚀 **Resultado Final: um mini-portal completo**
