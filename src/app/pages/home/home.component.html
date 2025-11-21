@@ -1,12 +1,14 @@
+<!-- Cabeçalho fixo -->
 <app-header></app-header>
 <div class="home-container">
   <div class="content-area">
+    <!-- Barra lateral de navegação -->
     <app-sidenav (linkClicked)="closeSidenav()"></app-sidenav>
 
+      <!-- Área de conteúdo principal onde as rotas são renderizadas -->
       <div class="content">
         <router-outlet/>
     </div>
   </div>
-
 </div>
 

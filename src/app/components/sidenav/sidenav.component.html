@@ -1,22 +1,30 @@
-<!-- Desktop Sidenav -->
+<!-- Sidenav para Desktop -->
 <div class="desktop-sidenav">
+  <!-- Container principal do Drawer (Gaveta) -->
   <mat-drawer-container class="container" autosize>
+    <!-- Drawer lateral que contém a lista de navegação -->
     <mat-drawer #drawer class="sidenav" mode="side" [opened]="true">
       <mat-nav-list class="nav-list">
+        <!-- Link para o Dashboard -->
         <a mat-list-item [routerLink]="['']" routerLinkActive="active" class="nav-link">
           <i class="material-icons">dashboard</i>Dashboard
         </a>
+        <!-- Link para a página Sobre -->
         <a mat-list-item [routerLink]="['/about']" routerLinkActive="active" class="nav-link">
           <i class="material-icons">info</i>About
         </a>
+        <!-- Link para a página de Contato -->
         <a mat-list-item [routerLink]="['/contact']" routerLinkActive="active" class="nav-link">
           <i class="material-icons">contact_page</i>Contact
         </a>
       </mat-nav-list>
     </mat-drawer>
 
+    <!-- Conteúdo principal ao lado do Sidenav -->
     <div class="sidenav-content">
+      <!-- Botão para alternar a visibilidade do Sidenav (abrir/fechar) -->
       <button mat-icon-button (click)="toggleSidebar()">
+        <!-- Ícone de seta que muda dependendo do estado (aberto/fechado) -->
         <img *ngIf="showFiller" src="assets/setaDireita.png" alt="setaDireita">
         <img *ngIf="!showFiller" src="assets/setaEsquerda.png" alt="setaDireita">
       </button>
@@ -24,17 +32,20 @@
   </mat-drawer-container>
 </div>
 
-<!-- Mobile Sidenav (Top-Down) -->
+<!-- Sidenav para Mobile (Menu Top-Down) -->
 <div class="mobile-sidenav">
   <div class="mobile-header">
+    <!-- Botão de menu hambúrguer para mobile -->
     <button mat-icon-button (click)="toggleMobileMenu()">
       <i class="material-icons">menu</i>
     </button>
     <span class="mobile-title">Menu</span>
   </div>
   
+  <!-- Lista de menu mobile que aparece/desaparece -->
   <div class="mobile-menu" [class.open]="isMobileMenuOpen">
     <mat-nav-list class="nav-list">
+      <!-- Links de navegação mobile (fecham o menu ao clicar) -->
       <a mat-list-item [routerLink]="['']" routerLinkActive="active" class="nav-link" (click)="toggleMobileMenu()">
         <i class="material-icons">dashboard</i>Dashboard
       </a>

@@ -14,17 +14,26 @@ import { RouterLink } from "@angular/router";
   styleUrl: './sidenav.component.css'
 })
 export class SidenavComponent {
-@ViewChild('drawer') drawer!: MatSidenav;
+  /** Referência ao componente MatSidenav para controle programático */
+  @ViewChild('drawer') drawer!: MatSidenav;
 
-showFiller: boolean = false;
+  /** Controla a exibição do ícone da seta (direita/esquerda) */
+  showFiller: boolean = false;
 
+  /** Controla a visibilidade do menu mobile */
   isMobileMenuOpen: boolean = false;
 
+  /**
+   * Alterna a visibilidade da sidebar desktop e atualiza o ícone da seta.
+   */
   toggleSidebar(): void {
     this.drawer.toggle();
     this.showFiller = !this.showFiller;
   }
 
+  /**
+   * Alterna a visibilidade do menu mobile.
+   */
   toggleMobileMenu(): void {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }

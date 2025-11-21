@@ -10,9 +10,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './contactpage.component.css'
 })
 export class ContactpageComponent {
+  /** Formulário reativo de contato */
   contactForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
+    // Inicialização do formulário com validações
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -20,6 +22,10 @@ export class ContactpageComponent {
     });
   }
 
+  /**
+   * Envia o formulário de contato.
+   * Exibe um alerta de sucesso se o formulário for válido.
+   */
   onSubmit() {
     if (this.contactForm.valid) {
       console.log('Form Submitted:', this.contactForm.value);

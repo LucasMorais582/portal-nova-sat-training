@@ -13,17 +13,20 @@ import {  RouterOutlet } from '@angular/router';
 })
 export class HomeComponent {
 
+  /** Controla a visibilidade da sidebar */
   public isSidenavVisible = false;
 
-  // Mostra ou esconde a sidebar
+  /**
+   * Alterna a visibilidade da sidebar.
+   */
   toggleSidenav(): void {
     this.isSidenavVisible = !this.isSidenavVisible;
   }
 
-  // Garante que a sidebar seja fechada
+  /**
+   * Fecha a sidebar.
+   */
   closeSidenav(): void {
     this.isSidenavVisible = false;
   }
-
-
 }

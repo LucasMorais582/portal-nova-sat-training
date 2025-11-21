@@ -15,12 +15,14 @@ import { ChartConfiguration, ChartOptions } from 'chart.js';
 })
 export class DashboardComponent {
 
+    /** Lista de cards com estatísticas para exibição */
     cards = [
     { title: 'Ordens de Serviço Abertas', value: '08', icon: 'assignment', color: 'text-orange' },
     { title: 'Ordens de Serviço Finalizadas', value: '05', icon: 'assignment', color: 'text-green' },
     { title: 'Ordens de Serviço Canceladas', value: '02', icon: 'assignment', color: 'text-red' },
     ];
 
+  /** Configuração dos dados do gráfico de barras */
   public barChartData: ChartConfiguration<'bar'>['data'] = {
     labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
     datasets: [
@@ -28,6 +30,7 @@ export class DashboardComponent {
     ]
   };
 
+  /** Opções de configuração do gráfico */
   public barChartOptions: ChartOptions<'bar'> = {
     responsive: true,
   };

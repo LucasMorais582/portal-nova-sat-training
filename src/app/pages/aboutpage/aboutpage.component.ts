@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './aboutpage.component.css'
 })
 export class AboutpageComponent {
-
+  // Lógica da página Sobre pode ser adicionada aqui
 }

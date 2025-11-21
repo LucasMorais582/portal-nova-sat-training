@@ -1,13 +1,19 @@
 <div class="container">
   <div class="main-content">
+    <!-- Seção de Dashboard (Gráficos e Estatísticas) -->
     <div class="dashboard-section">
       <app-dashboard></app-dashboard>
     </div>
+    
+    <!-- Seção de Cards -->
     <div class="cards-section">
+      <!-- Componente para criar novos cards -->
       <div class="create-card-section">
         <app-create-card></app-create-card>
       </div>
+      
       <h2>Cards</h2>
+      <!-- Grid de cards dinâmicos -->
       <div class="cards-grid">
         <app-card *ngFor="let card of cards$ | async"
                   [title]="card.title"

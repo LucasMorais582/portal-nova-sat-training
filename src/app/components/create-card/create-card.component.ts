@@ -11,17 +11,26 @@ import { CardService } from '../../service/card.service';
   styleUrls: ['./create-card.component.css']
 })
 export class CreateCardComponent {
+  /** Grupo de formulário reativo para os dados do card */
   cardForm: FormGroup;
+
+  /** Armazena a pré-visualização da imagem (Base64) */
   iconPreview: string | ArrayBuffer | null = null;
 
   constructor(private fb: FormBuilder, private cardService: CardService) {
+    // Inicializa o formulário com validações
     this.cardForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      icon: ['', Validators.required] // Stores the base64 string
+      icon: ['', Validators.required] // Armazena a string Base64
     });
   }
 
+  /**
+   * Manipula a seleção de arquivo (imagem).
+   * Converte a imagem selecionada para Base64 para pré-visualização e envio.
+   * @param event Evento de mudança do input file
+   */
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
@@ -34,6 +43,10 @@ export class CreateCardComponent {
     }
   }
 
+  /**
+   * Envia os dados do formulário para criar um novo card.
+   * Se o formulário for válido, chama o serviço e reseta o formulário.
+   */
   createCard() {
     if (this.cardForm.valid) {
       this.cardService.addCard(this.cardForm.value);

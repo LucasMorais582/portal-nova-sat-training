@@ -10,7 +10,10 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
+  /** Título do card */
   @Input() title: string = '';
+  /** Descrição do card */
   @Input() description: string = '';
+  /** URL ou Base64 do ícone do card */
   @Input() icon: string = '';
 }

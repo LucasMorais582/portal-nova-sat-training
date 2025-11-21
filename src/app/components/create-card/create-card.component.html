@@ -1,33 +1,45 @@
 <div class="create-card-container">
   <h2>Criar Novo Card</h2>
+  <!-- Formulário reativo para criação de card -->
   <form [formGroup]="cardForm" (ngSubmit)="createCard()" class="create-card-form">
+    
+    <!-- Campo de Título -->
     <div class="form-group">
       <label for="title">Título</label>
       <input id="title" type="text" formControlName="title" placeholder="Ex: Novos Projetos">
+      <!-- Mensagem de erro se o título for inválido -->
       <div *ngIf="cardForm.get('title')?.invalid && cardForm.get('title')?.touched" class="error">
         Título é obrigatório.
       </div>
     </div>
 
+    <!-- Campo de Descrição -->
     <div class="form-group">
       <label for="description">Descrição</label>
       <textarea id="description" formControlName="description" rows="3" placeholder="Descrição do card"></textarea>
+      <!-- Mensagem de erro se a descrição for inválida -->
       <div *ngIf="cardForm.get('description')?.invalid && cardForm.get('description')?.touched" class="error">
         Descrição é obrigatória.
       </div>
     </div>
 
+    <!-- Campo de Upload de Ícone (Imagem) -->
     <div class="form-group">
       <label for="icon">Ícone (Imagem)</label>
       <input id="icon" type="file" (change)="onFileSelected($event)" accept="image/*" class="file-input">
+      
+      <!-- Pré-visualização da imagem selecionada -->
       <div *ngIf="iconPreview" class="preview-container">
         <img [src]="iconPreview" alt="Pré-visualização" class="icon-preview">
       </div>
+      
+      <!-- Mensagem de erro se o ícone não for selecionado -->
       <div *ngIf="cardForm.get('icon')?.invalid && cardForm.get('icon')?.touched" class="error">
         Ícone é obrigatório.
       </div>
     </div>
 
+    <!-- Botão de envio (desabilitado se o formulário for inválido) -->
     <button type="submit" [disabled]="cardForm.invalid">Adicionar Card</button>
   </form>
 </div>

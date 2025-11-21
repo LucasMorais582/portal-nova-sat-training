@@ -9,5 +9,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  /** Título da aplicação */
   title = 'portal-nova-sat-training';
 }

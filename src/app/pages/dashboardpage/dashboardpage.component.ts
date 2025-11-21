@@ -15,10 +15,14 @@ import { Observable } from 'rxjs';
   styleUrl: './dashboardpage.component.css'
 })
 export class DashboardpageComponent implements OnInit {
+  /** Observable que contém a lista de cards */
   cards$: Observable<Card[]> | undefined;
 
   constructor(private cardService: CardService) {}
 
+  /**
+   * Inicializa o componente carregando todos os cards do serviço.
+   */
   ngOnInit(): void {
     this.cards$ = this.cardService.getAllCards();
   }

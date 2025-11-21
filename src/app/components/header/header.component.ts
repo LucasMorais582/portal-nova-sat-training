@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-
+  // Lógica do cabeçalho pode ser adicionada aqui futuramente
 }
