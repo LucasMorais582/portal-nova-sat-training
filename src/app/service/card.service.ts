@@ -1,21 +1,35 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { Card } from '../model/card';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
 
-  constructor() { }
+  private dataUrl = 'assets/data/cards.json';
+  private cardsSubject = new BehaviorSubject<Card[]>([]);
+  cards$ = this.cardsSubject.asObservable();
 
+  constructor(private http: HttpClient) {
+    this.loadInitialCards();
+  }
 
+  private loadInitialCards() {
+    this.http.get<Card[]>(this.dataUrl).subscribe(cards => {
+      this.cardsSubject.next(cards);
+    });
+  }
 
+  getAllCards(): Observable<Card[]> {
+    return this.cards$;
+  }
 
-  getAllCards() {
-    return [
-      { title: 'Usuários', value: 120, icon: 'person', color: 'text-blue' },
-      { title: 'Vendas', value: 75, icon: 'shopping_cart', color: 'text-green' },
-      { title: 'Lucro', value: '$1,200', icon: 'attach_money', color: 'text-orange' }
-    ];
+  addCard(card: Card) {
+    const currentCards = this.cardsSubject.value;
+    this.cardsSubject.next([...currentCards, card]);
   }
 
   apagar(cardId: number) {
@@ -27,6 +41,4 @@ export class CardService {
       }
     };
   }
-
-
 }

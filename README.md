@@ -24,9 +24,24 @@ http://gitlab.mprj.mp.br/gate/portal-nova-sat-training.git
 cd portal-nova-sat-training
 
 ### 2️⃣ Instalar dependências
+
 npm install
 
 ### 3️⃣ Rodar localmente
+
 npm start
 
 Acesse em: http://localhost:4200
+
+---
+
+## 📂 Estrutura do Projeto
+
+- `src/app/components`: Componentes reutilizáveis (Card, Header, Sidenav, etc.)
+- `src/app/pages`: Páginas principais (Dashboard, About, Contact)
+- `src/app/service`: Serviços para lógica de negócios e chamadas de API
+- `src/assets/data`: Dados mockados (JSON)
+
+## 📸 Screenshots
+
+_(Adicione screenshots aqui)_

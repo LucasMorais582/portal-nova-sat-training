@@ -1,28 +1,10 @@
-<div class="cards-container">
-
-  <div *ngFor="let card of cards" class="card-item" [class.expanded]="expandedCardId === card.id">
-    <div class="card-header" (click)="toggleExpand(card.id)">
-      <img [src]="card.icon" [alt]="card.title" class="card-icon">
-      <div class="card-preview">
-        <h3 class="card-title">{{ card.title }}</h3>
-        <p class="card-description">{{ card.description }}</p>
-      </div>
-      <button class="expand-btn" [class.rotated]="expandedCardId === card.id">
-        ▼
-      </button>
-    </div>
-    <div class="card-content" *ngIf="expandedCardId === card.id">
-      <div class="card-details">
-        <p><strong>Título:</strong> {{ card.title }}</p>
-        <p><strong>Descrição:</strong> {{ card.description }}</p>
-        <img [src]="card.icon" [alt]="card.title" class="card-full-image">
-      </div>
+<div class="card-item">
+  <div class="card-header">
+    <img [src]="icon" [alt]="title" class="card-icon">
+    <div class="card-preview">
+      <h3 class="card-title">{{ title }}</h3>
+      <p class="card-description">{{ description }}</p>
     </div>
   </div>
-    <div class="card-create">
-      <h1>Criar Novo Card</h1>
-      <app-create-card (cardCreated)="cards.push($event)"></app-create-card>
-    </div>
-
 </div>
 

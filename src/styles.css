@@ -1,9 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles & Variables */
+:root {
+  /* Color Palette */
+  --primary-color: #2c3e50; /* Deep Blue */
+  --secondary-color: #34495e; /* Darker Blue */
+  --accent-color: #3498db; /* Vibrant Blue */
+  --accent-hover: #2980b9;
+  --text-color: #333333;
+  --text-light: #7f8c8d;
+  --background-light: #f4f6f8;
+  --white: #ffffff;
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+  margin: 0; 
+  font-family: 'Roboto', 'Inter', sans-serif; 
+  background-color: var(--background-light);
+  color: var(--text-color);
+  line-height: 1.6;
+}
 
 *, *::before, *::after { box-sizing: border-box; }
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 /* Base responsive font sizing */
 @media (max-width: 768px) {

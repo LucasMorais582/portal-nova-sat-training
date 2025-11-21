@@ -5,6 +5,7 @@
   min-height: calc(100vh - 32px);
   width: 100%;
   box-sizing: border-box;
+  padding: 20px;
 }
 
 .page-title {

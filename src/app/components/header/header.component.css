@@ -29,3 +29,7 @@
   }
   .imagem { height: clamp(36px, 12vw, 60px); }
 }
+
+h1{
+  color: white;
+}

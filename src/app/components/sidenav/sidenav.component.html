@@ -1,34 +1,49 @@
-<mat-drawer-container class="container" autosize>
-  <mat-drawer #drawer class="sidenav" mode="side" [opened]="true">
+<!-- Desktop Sidenav -->
+<div class="desktop-sidenav">
+  <mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side" [opened]="true">
+      <mat-nav-list class="nav-list">
+        <a mat-list-item [routerLink]="['']" routerLinkActive="active" class="nav-link">
+          <i class="material-icons">dashboard</i>Dashboard
+        </a>
+        <a mat-list-item [routerLink]="['/about']" routerLinkActive="active" class="nav-link">
+          <i class="material-icons">info</i>About
+        </a>
+        <a mat-list-item [routerLink]="['/contact']" routerLinkActive="active" class="nav-link">
+          <i class="material-icons">contact_page</i>Contact
+        </a>
+      </mat-nav-list>
+    </mat-drawer>
+
+    <div class="sidenav-content">
+      <button mat-icon-button (click)="toggleSidebar()">
+        <img *ngIf="showFiller" src="assets/setaDireita.png" alt="setaDireita">
+        <img *ngIf="!showFiller" src="assets/setaEsquerda.png" alt="setaDireita">
+      </button>
+    </div>
+  </mat-drawer-container>
+</div>
+
+<!-- Mobile Sidenav (Top-Down) -->
+<div class="mobile-sidenav">
+  <div class="mobile-header">
+    <button mat-icon-button (click)="toggleMobileMenu()">
+      <i class="material-icons">menu</i>
+    </button>
+    <span class="mobile-title">Menu</span>
+  </div>
+  
+  <div class="mobile-menu" [class.open]="isMobileMenuOpen">
     <mat-nav-list class="nav-list">
-      <a mat-list-item
-       [routerLink]="['']"
-          routerLinkActive="active"
-          class="nav-link">
+      <a mat-list-item [routerLink]="['']" routerLinkActive="active" class="nav-link" (click)="toggleMobileMenu()">
         <i class="material-icons">dashboard</i>Dashboard
       </a>
-      <a mat-list-item
-        [routerLink]="['/about']"
-          routerLinkActive="active"
-          class="nav-link">
+      <a mat-list-item [routerLink]="['/about']" routerLinkActive="active" class="nav-link" (click)="toggleMobileMenu()">
         <i class="material-icons">info</i>About
       </a>
-      <a mat-list-item
-        [routerLink]="['/contact']"
-          routerLinkActive="active"
-          class="nav-link">
+      <a mat-list-item [routerLink]="['/contact']" routerLinkActive="active" class="nav-link" (click)="toggleMobileMenu()">
         <i class="material-icons">contact_page</i>Contact
       </a>
-
     </mat-nav-list>
-  </mat-drawer>
-
-  <div class="sidenav-content">
-    <button mat-icon-button (click)="toggleSidebar()">
-      <img *ngIf="showFiller" src="assets/setaDireita.png" alt="setaDireita">
-      <img *ngIf="!showFiller" src="assets/setaEsquerda.png" alt="setaDireita">
-    </button>
   </div>
-
-
-</mat-drawer-container>
+</div>

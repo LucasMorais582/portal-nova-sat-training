@@ -1,0 +1,8 @@
+[
+  { "id": 1, "title": "Usuários", "description": "Gestão de usuários do sistema", "icon": "assets/documentoslogo.png" },
+  { "id": 2, "title": "Vendas", "description": "Acompanhamento de vendas mensais", "icon": "assets/bob_esponja.png" },
+  { "id": 3, "title": "Projetos", "description": "Projetos em andamento", "icon": "assets/engenharia_ambiental.png" },
+  { "id": 4, "title": "Saúde", "description": "Monitoramento de saúde", "icon": "assets/medicina_simbolo.png" },
+  { "id": 5, "title": "Engenharia", "description": "Departamento de engenharia", "icon": "assets/Simbolo_engenharia.svg.png" },
+  { "id": 6, "title": "Jurídico", "description": "Departamento jurídico", "icon": "assets/direito.png" }
+]

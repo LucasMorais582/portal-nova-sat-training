@@ -18,18 +18,14 @@ export class SidenavComponent {
 
 showFiller: boolean = false;
 
+  isMobileMenuOpen: boolean = false;
+
   toggleSidebar(): void {
     this.drawer.toggle();
-    this.showFiller = this.showFiller;
+    this.showFiller = !this.showFiller;
+  }
 
-
-    if(this.showFiller == true){
-      this.showFiller = false;
-    }
-    else {
-      this.showFiller = true;
-    }
-    console.log(this.showFiller);
-
-}
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
 }
