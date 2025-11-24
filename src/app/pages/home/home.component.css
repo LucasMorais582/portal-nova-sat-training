@@ -9,6 +9,10 @@
   width: 100%;
 }
 
+.content{
+  padding-left: 350px;
+}
+
 
 app-sidebar {
   width: 250px;

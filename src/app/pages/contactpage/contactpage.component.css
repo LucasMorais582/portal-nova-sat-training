@@ -6,9 +6,7 @@
   background-color: var(--background-light);
   min-height: 100%;
 }
-
 .content {
-  max-width: 900px;
   width: 100%;
   background-color: var(--white);
   border-radius: var(--radius-lg);
