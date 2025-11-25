@@ -187,6 +187,7 @@
 
   .mobileMenu a {
     display: block;
+    cursor: pointer;
   }
 
 }

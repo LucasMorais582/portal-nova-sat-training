@@ -1,3 +1,4 @@
+import { User } from './../interface/User';
 import { Component } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from '../service/auth.service';
@@ -15,8 +16,11 @@ import Swal from 'sweetalert2';
 })
 export class UiComponent {
 
-  email = '';
-  password = '';
+  user: User = {
+  name: '',
+  email: '',
+  password: ''
+};
 
   constructor(public authService: AuthService,
               public router: Router) {
@@ -28,8 +32,12 @@ export class UiComponent {
 
   protected menuIsOpen: Boolean = false;
 
+  addUser(){
+    this.authService.addUser(this.user);
+  }
+
   login() {
-    this.authService.login(this.email, this.password).subscribe({
+    this.authService.login(this.user.email, this.user.password).subscribe({
       next: (token) => {
         Swal.fire('Conectado', 'Credencias corretas, Bom Trabalho!', 'success')
         this.router.navigate(['/home']);

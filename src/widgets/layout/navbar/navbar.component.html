@@ -30,6 +30,13 @@
   </div>
 
   <div class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <a routerLink="/users" (click)="closeMenu()">
+      <img src="../../../assets/imageGroupUsers.png" alt="groupt Icon" id="groupIcon"/>
+      Users
+    </a>
+  </div>
+
+  <div class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
     <a (click)="closeMenu(); openLogout()">
       <img src="../../../assets/botaoLogout.png" id="logoutIcon"/>
       Logout
@@ -46,6 +53,7 @@
   <a routerLink="/home" (click)="closeMenu()">Home</a>
   <a routerLink="/about" (click)="closeMenu()">About</a>
   <a routerLink="/contact" (click)="closeMenu()">Contact</a>
+  <a routerLink="/users" (click)="closeMenu()">Users</a>
   <a (click)="closeMenu(); openLogout()">Logout</a>
 </div>
 

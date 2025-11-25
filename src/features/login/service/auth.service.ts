@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
-import {delay, Observable, of, throwError} from 'rxjs';
+import {BehaviorSubject, delay, Observable, of, throwError} from 'rxjs';
+import { User } from '../interface/User';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +12,24 @@ export class AuthService {
 
   constructor(private router: Router) {}
 
-  login(email:String, password:String): Observable<String> {
-    const fakeUser = {
-      email: 'teste@teste.com',
-      password: '123456'
-    }
+  private userSource = new BehaviorSubject<any[]>([]);
+  $user = this.userSource.asObservable();
 
-    if(email === fakeUser.email && password === fakeUser.password) {
+  addUser(user: User){
+    const currentUsers = this.userSource.value;
+    this.userSource.next([...currentUsers, user]);
+  }
+
+  getUser(): User[] {
+    return this.userSource.value;
+  }
+
+  login(email:String, password:String): Observable<String> {
+
+    const users = this.getUser();
+    const user = users.find(u => u.email === email && u.password === password);
+
+    if(user) {
       const fakeToken = 'fake-jwt-token-' + Math.random().toString(36).substring(2);
       localStorage.setItem(this.TOKEN_KEY, fakeToken);
       console.log("LocalStorage foi escrito!");
