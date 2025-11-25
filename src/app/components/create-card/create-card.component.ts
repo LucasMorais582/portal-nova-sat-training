@@ -1,36 +1,43 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon'; // Importante para o preview
 import { CardService } from '../../service/card.service';
+import { CommonModule } from '@angular/common'; // Caso precise de diretivas comuns
 
 @Component({
   selector: 'app-create-card',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatIconModule, CommonModule], // Adicione MatIconModule
   templateUrl: './create-card.component.html',
   styleUrls: ['./create-card.component.css']
 })
 export class CreateCardComponent {
-  /** Grupo de formulário reativo para os dados do card */
   cardForm: FormGroup;
-
-  /** Armazena a pré-visualização da imagem (Base64) */
   iconPreview: string | ArrayBuffer | null = null;
 
+  // Controla qual input está visível
+  inputType: 'image' | 'icon' = 'image';
+
   constructor(private fb: FormBuilder, private cardService: CardService) {
-    // Inicializa o formulário com validações
     this.cardForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      icon: ['', Validators.required] // Armazena a string Base64
+      icon: ['', Validators.required],
+      // Adicionamos um campo para salvar se é 'image' ou 'icon'
+      type: ['image', Validators.required]
     });
   }
 
-  /**
-   * Manipula a seleção de arquivo (imagem).
-   * Converte a imagem selecionada para Base64 para pré-visualização e envio.
-   * @param event Evento de mudança do input file
-   */
+  // Função para trocar o modo de input
+  switchInputType(type: 'image' | 'icon') {
+    this.inputType = type;
+    this.cardForm.get('type')?.setValue(type);
+
+    // Limpa o valor anterior do ícone para evitar erros
+    this.cardForm.get('icon')?.setValue('');
+    this.iconPreview = null;
+  }
+
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
@@ -43,14 +50,13 @@ export class CreateCardComponent {
     }
   }
 
-  /**
-   * Envia os dados do formulário para criar um novo card.
-   * Se o formulário for válido, chama o serviço e reseta o formulário.
-   */
   createCard() {
     if (this.cardForm.valid) {
+      // Envia o objeto completo (agora inclui o campo 'type')
       this.cardService.addCard(this.cardForm.value);
-      this.cardForm.reset();
+
+      this.cardForm.reset({ type: 'image' }); // Reseta mantendo o padrão imagem
+      this.inputType = 'image';
       this.iconPreview = null;
     }
   }

@@ -18,6 +18,11 @@ export const routes: Routes = [
         // Rota para a página de Contato
         { path: 'contact',
           loadComponent: () => import('./pages/contactpage/contactpage.component').then(mod => mod.ContactpageComponent)
+        },
+
+        // Rota para a página de Contato
+        { path: 'cards',
+          loadComponent: () => import('./pages/cardpage/cardpage.component').then(mod => mod.CardpageComponent)
         }
       ]
     }

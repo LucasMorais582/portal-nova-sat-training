@@ -1,45 +1,69 @@
 <div class="create-card-container">
   <h2>Criar Novo Card</h2>
-  <!-- Formulário reativo para criação de card -->
   <form [formGroup]="cardForm" (ngSubmit)="createCard()" class="create-card-form">
-    
-    <!-- Campo de Título -->
+
     <div class="form-group">
       <label for="title">Título</label>
       <input id="title" type="text" formControlName="title" placeholder="Ex: Novos Projetos">
-      <!-- Mensagem de erro se o título for inválido -->
-      <div *ngIf="cardForm.get('title')?.invalid && cardForm.get('title')?.touched" class="error">
-        Título é obrigatório.
-      </div>
+      @if (cardForm.get('title')?.invalid && cardForm.get('title')?.touched) {
+        <div class="error">Título é obrigatório.</div>
+      }
     </div>
 
-    <!-- Campo de Descrição -->
     <div class="form-group">
       <label for="description">Descrição</label>
       <textarea id="description" formControlName="description" rows="3" placeholder="Descrição do card"></textarea>
-      <!-- Mensagem de erro se a descrição for inválida -->
-      <div *ngIf="cardForm.get('description')?.invalid && cardForm.get('description')?.touched" class="error">
-        Descrição é obrigatória.
-      </div>
+      @if (cardForm.get('description')?.invalid && cardForm.get('description')?.touched) {
+        <div class="error">Descrição é obrigatória.</div>
+      }
     </div>
 
-    <!-- Campo de Upload de Ícone (Imagem) -->
     <div class="form-group">
-      <label for="icon">Ícone (Imagem)</label>
-      <input id="icon" type="file" (change)="onFileSelected($event)" accept="image/*" class="file-input">
-      
-      <!-- Pré-visualização da imagem selecionada -->
-      <div *ngIf="iconPreview" class="preview-container">
-        <img [src]="iconPreview" alt="Pré-visualização" class="icon-preview">
-      </div>
-      
-      <!-- Mensagem de erro se o ícone não for selecionado -->
-      <div *ngIf="cardForm.get('icon')?.invalid && cardForm.get('icon')?.touched" class="error">
-        Ícone é obrigatório.
+      <label>Tipo de Ícone:</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="inputType" [checked]="inputType === 'image'" (click)="switchInputType('image')">
+          Upload de Imagem
+        </label>
+        <label>
+          <input type="radio" name="inputType" [checked]="inputType === 'icon'" (click)="switchInputType('icon')">
+          Material Icon (Texto)
+        </label>
       </div>
     </div>
 
-    <!-- Botão de envio (desabilitado se o formulário for inválido) -->
+    <div class="form-group">
+
+      @if (inputType === 'image') {
+        <label for="iconFile">Selecione a Imagem</label>
+        <input id="iconFile" type="file" (change)="onFileSelected($event)" accept="image/*" class="file-input">
+
+        @if (iconPreview) {
+          <div class="preview-container">
+            <img [src]="iconPreview" alt="Preview" class="icon-preview">
+          </div>
+        }
+      }
+
+      @if (inputType === 'icon') {
+        <label for="iconText">Nome do Ícone (ex: home, star, settings)</label>
+        <div class="input-with-hint">
+          <input id="iconText" type="text" formControlName="icon" placeholder="Digite o nome do ícone">
+          <small><a href="https://fonts.google.com/icons" target="_blank">Ver lista de ícones</a></small>
+        </div>
+
+        @if (cardForm.get('icon')?.value) {
+          <div class="preview-container">
+            <mat-icon class="icon-preview-mat">{{ cardForm.get('icon')?.value }}</mat-icon>
+          </div>
+        }
+      }
+
+      @if (cardForm.get('icon')?.invalid && cardForm.get('icon')?.touched) {
+        <div class="error">O ícone/imagem é obrigatório.</div>
+      }
+    </div>
+
     <button type="submit" [disabled]="cardForm.invalid">Adicionar Card</button>
   </form>
 </div>

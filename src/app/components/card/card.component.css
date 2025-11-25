@@ -1,3 +1,5 @@
+/* Aqui eu chorei pro gpt */
+
 .card-item {
   display: flex;
   flex-direction: column;
@@ -8,7 +10,7 @@
   overflow: hidden;
   height: 100%;
   cursor: pointer;
-  border: 1px solid transparent;
+  border: 2px solid #333333 !important;
 }
 
 .card-item:hover {
@@ -24,14 +26,89 @@
   gap: var(--spacing-md);
 }
 
-.card-icon {
+/* --- MANTENHA O RESTO IGUAL, ALTERE APENAS DAQUI PARA BAIXO --- */
+
+/* O Container (a bolinha) */
+.icon-container {
+  width: 50px;       /* Largura fixa */
+  height: 50px;      /* Altura fixa */
+  min-width: 50px;   /* Impede de esmagar */
+  border-radius: 50%;
+  background-color: var(--background-light); /* Cor da bolinha */
+  display: flex;     /* Centraliza o conteúdo */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;  /* Garante que a imagem não vaze da bolinha */
+  transition: background-color 0.3s ease;
+}
+
+/* --- CONTAINER (A bolinha de fundo) --- */
+.card-icon-container {
+  /* Tamanho da bolinha */
   width: 50px;
   height: 50px;
-  object-fit: contain;
-  padding: 8px;
-  background-color: var(--background-light);
+  min-width: 50px; /* Não deixa esmagar */
+
+  /* Centralização perfeita */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Estilo da bolinha */
+  background-color: var(--background-light, #f0f0f0);
   border-radius: 50%;
   transition: background-color 0.3s ease;
+  margin-right: var(--spacing-md, 12px); /* Espaço para o texto */
+}
+
+/* Efeito Hover na bolinha (herdado do pai) */
+.card-item:hover .card-icon-container {
+  background-color: #e8f4fc;
+}
+
+/* --- CLASSE COMUM PARA TAMANHO (O Segredo) --- */
+/* Aplica o mesmo tamanho para ambos */
+.card-visual-element {
+  width: 28px;  /* Largura fixa igual para os dois */
+  height: 28px; /* Altura fixa igual para os dois */
+}
+
+/* --- ESTILO ESPECÍFICO DA IMAGEM --- */
+.card-img {
+  object-fit: cover; /* Garante que a imagem não distorça */
+  border-radius: 4px; /* Opcional: leve arredondamento na imagem */
+}
+
+/* --- ESTILO ESPECÍFICO DO ÍCONE --- */
+.card-mat-icon {
+  font-size: 28px; /* Tamanho da fonte DEVE ser igual ao width/height acima */
+  color: var(--primary-color, #333);
+
+  /* Reset de dimensões padrão do material icon para não atrapalhar */
+  width: 28px;
+  height: 28px;
+  line-height: 28px; /* Centralização vertical do texto */
+}
+
+/* Efeito Hover no container */
+.card-item:hover .icon-container {
+  background-color: #e8f4fc;
+}
+
+/* Estilo para a IMAGEM (Upload) */
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* A mágica: corta a imagem para caber perfeitamente */
+  display: block;
+}
+
+/* Estilo para o ÍCONE (Material Icon) */
+.card-mat-icon {
+  font-size: 28px;   /* Tamanho do ícone de texto */
+  width: 28px;
+  height: 28px;
+  color: var(--primary-color); /* Ou a cor que preferir */
 }
 
 .card-item:hover .card-icon {

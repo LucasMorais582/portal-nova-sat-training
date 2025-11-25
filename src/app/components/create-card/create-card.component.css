@@ -5,6 +5,45 @@
   box-shadow: var(--shadow-sm);
   margin-bottom: var(--spacing-lg);
 }
+/* Estilo para os Radio Buttons */
+.radio-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.radio-group label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Estilo para o link da lista de ícones */
+.input-with-hint small a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+/* Preview do Material Icon */
+.icon-preview-mat {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: #555; /* Cor do ícone */
+  margin-top: 10px;
+}
+
+/* Ajuste no preview container para centralizar */
+.preview-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  border: 1px dashed #ccc;
+  padding: 10px;
+  border-radius: 4px;
+}
 
 h2 {
   font-size: 1.4rem;

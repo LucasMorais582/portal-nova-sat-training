@@ -8,4 +8,7 @@ export interface Card {
   description: string;
   /** URL ou Base64 do ícone */
   icon: string;
+
+  // O '?' serve para dizer que é opcional (caso você tenha cards antigos sem tipo)
+  type?: 'image' | 'icon';
 }

@@ -18,10 +18,11 @@
   gap: var(--spacing-lg);
   padding: var(--spacing-lg) var(--spacing-xl);
   overflow-y: auto;
-  width: 100%;
+  width: 1000px;
   max-width: 1200px;
   margin: 0 auto;
 }
+
 
 h2 {
   margin-bottom: var(--spacing-md);
@@ -34,14 +35,16 @@ h2 {
 .dashboard-section, .cards-section {
   background-color: transparent;
   border-radius: var(--radius-md);
+  border-color: black;
 }
 
 /* Statistics Section Styling */
 .dashboard-section app-dashboard {
-  background-color: var(--white);
-  padding: var(--spacing-lg);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  /* Adicione estas duas linhas para corrigir o comportamento do elemento */
+  display: inline-block;
+  width: 100%;
+  background-color: white; /* Garante transparência */
+  padding: 50px;
 }
 
 .cards-grid {

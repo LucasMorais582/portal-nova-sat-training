@@ -1,0 +1,12 @@
+ <h2>Cards</h2>
+      <!-- Grid de cards dinâmicos -->
+      <div class="cards-grid">
+  @for (card of cards$ | async; track card) {
+   <app-card
+  [title]="card.title"
+  [description]="card.description"
+  [icon]="card.icon"
+  [type]="card.type ?? 'image'"> </app-card>
+  }
+</div>
+

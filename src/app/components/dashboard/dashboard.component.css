@@ -1,10 +1,10 @@
 /* Dashboard: ocupar mais espaço vertical e horizontal */
+/* CSS do app-dashboard */
 .container {
-  padding: 20px 24px;
-  background-color: #f5f7fa;
-  min-height: calc(100vh - 32px);
-  width: 100%;
-  box-sizing: border-box;
+  background-color: transparent;
+  min-height: auto;
+  width: 800px;
+  box-sizing: content-box;
   padding: 20px;
 }
 

@@ -17,6 +17,10 @@
         <a mat-list-item [routerLink]="['/contact']" routerLinkActive="active" class="nav-link">
           <i class="material-icons">contact_page</i>Contact
         </a>
+
+         <a mat-list-item [routerLink]="['/cards']" routerLinkActive="active" class="nav-link">
+          <i class="material-icons">contact_page</i>Cards
+        </a>
       </mat-nav-list>
     </mat-drawer>
 
@@ -25,8 +29,12 @@
       <!-- Botão para alternar a visibilidade do Sidenav (abrir/fechar) -->
       <button mat-icon-button (click)="toggleSidebar()">
         <!-- Ícone de seta que muda dependendo do estado (aberto/fechado) -->
-        <img *ngIf="showFiller" src="assets/setaDireita.png" alt="setaDireita">
-        <img *ngIf="!showFiller" src="assets/setaEsquerda.png" alt="setaDireita">
+        @if (showFiller) {
+          <img src="assets/setaDireita.png" alt="setaDireita">
+        }
+        @if (!showFiller) {
+          <img src="assets/setaEsquerda.png" alt="setaDireita">
+        }
       </button>
     </div>
   </mat-drawer-container>
@@ -41,7 +49,7 @@
     </button>
     <span class="mobile-title">Menu</span>
   </div>
-  
+
   <!-- Lista de menu mobile que aparece/desaparece -->
   <div class="mobile-menu" [class.open]="isMobileMenuOpen">
     <mat-nav-list class="nav-list">

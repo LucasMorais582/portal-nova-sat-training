@@ -1,12 +1,18 @@
-<div class="card-item">
-  <div class="card-header">
-    <!-- Ícone do card -->
-    <img [src]="icon" [alt]="title" class="card-icon">
-    <div class="card-preview">
-      <!-- Título e descrição do card -->
-      <h3 class="card-title">{{ title }}</h3>
-      <p class="card-description">{{ description }}</p>
-    </div>
+<div class="card">
+  <div class="card-icon-container">
+
+    @if (type === 'image') {
+      <img [src]="icon" alt="ícone do card" class="card-img">
+    }
+
+    @if (type === 'icon') {
+      <mat-icon class="card-mat-icon">{{ icon }}</mat-icon>
+    }
+
+  </div>
+
+  <div class="card-content">
+    <h3>{{ title }}</h3>
+    <p>{{ description }}</p>
   </div>
 </div>
-
