@@ -23,7 +23,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
     "card": "^2.5.4",
     "chips": "^0.1.0",
-    "mat": "^1.0.23",
+    "mat": "^0.1.26",
     "material": "^0.9.24",
     "ng2-charts": "^8.0.0",
     "rxjs": "~7.8.0",
@@ -31,16 +31,16 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^19.2.4",
+    "@angular-devkit/build-angular": "^21.0.0",
     "@angular/cli": "^19.2.4",
     "@angular/compiler-cli": "^19.2.0",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.6.0",
-    "karma": "~6.4.0",
+    "karma": "^6.4.4",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
+    "karma-jasmine": "^4.0.2",
+    "karma-jasmine-html-reporter": "^1.7.0",
     "typescript": "~5.7.2"
   }
 }
