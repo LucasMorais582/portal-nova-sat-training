@@ -48,3 +48,12 @@
 .text-green { color: #4caf50; }
 .text-blue { color: #2196f3; }
 .text-orange { color: #ff9800; }
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
