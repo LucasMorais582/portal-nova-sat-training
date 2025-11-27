@@ -4,12 +4,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from '../service/auth.service';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2';
+import {NgIf} from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-ui',
   imports: [
     ReactiveFormsModule,
     FormsModule,
+    NgIf,
   ],
   templateUrl: './ui.component.html',
   styleUrl: './ui.component.css'
@@ -23,7 +26,8 @@ export class UiComponent {
 };
 
   constructor(public authService: AuthService,
-              public router: Router) {
+              public router: Router,
+              private http: HttpClient) {
   }
 
   protected toggleMenu(): void {
@@ -47,5 +51,4 @@ export class UiComponent {
       }
     });
   }
-
 }
