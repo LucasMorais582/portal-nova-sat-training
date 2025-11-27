@@ -1,0 +1,92 @@
+<div class="containerPrincipal">
+  <div id="containerContentLogo">
+    <img src="assets/corujaLogin.png" alt="Logo Coruja">
+    <p id="fraseLogo">
+      Faça o login para entrar no portal, ou crie uma nova conta!
+    </p>
+  </div>
+  <div id="containerContentRegister">
+    <form  class="formCompleto">
+
+      <div id="formGroupRegister" [class.open]="menuIsOpen">
+
+        <button
+          id="buttonToggleLogin"
+          type="button"
+          (click)="toggleMenu()"
+        >
+          <p>Login</p>
+        </button>
+
+        <h2 id="titleRegister">Faça o Registro</h2>
+
+        <label for="name">Nome:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="Name"
+          [(ngModel)]="user.name"
+        />
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="Email"
+          [(ngModel)]="user.email"
+        />
+
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          placeholder="Password"
+          [(ngModel)]="user.password"
+        />
+
+        <button type="submit" id="buttonSubmitRegistrar" (click)="addUser()">Registrar</button>
+      </div>
+      <div id="formGroupLogin" [class.open]="!menuIsOpen">
+
+        <button
+          id="buttonToggleLogin"
+          type="button"
+          (click)="toggleMenu()"
+        >
+          <p>Register</p>
+        </button>
+
+        <h2 id="titleRegister">Faça o Login</h2>
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="Email"
+          [(ngModel)]="user.email"
+        />
+
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          placeholder="Password"
+          [(ngModel)]="user.password"
+        />
+
+        <button type="submit" id="buttonSubmitLogin" (click)="login()">Logar</button>
+      </div>
+
+    </form>
+  </div>
+</div>
