@@ -1,0 +1,16 @@
+<div class="cards-container">
+  <div class="card" *ngFor="let card of cards">
+    <div id="colorInCard"></div>
+    <p id="numberPaIc">Número PaIc:{{ card.numberPaIc}}</p>
+    <p id="objective">Objetivo:</p>
+    <p>{{ card.objective }}</p>
+    <p id="description">Descrição:</p>
+    <p>{{ card.description }}</p>
+  </div>
+</div>
+@if (cards.length == 0) {
+  <Nav id="notHaveCards">
+    <h1>Não há cards para serem exibidos.</h1>
+    <p>Parece que ainda não possui nenhuma sat preparada, caso precise iniciar uma, abra no <a routerLink="/newsat">New Sat</a>!</p>
+  </Nav>
+}

@@ -75,7 +75,7 @@ export class UiComponent {
         return false;
 
       case (!regexSenha.test(password)):
-        Swal.fire('Error','a senha é invalida, porfavor, coloque uma senha valida', 'warning')
+        Swal.fire('Error','a senha é invalida, por favor, coloque uma senha valida', 'warning')
         return false;
     }
     return true;

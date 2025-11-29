@@ -26,6 +26,23 @@
   margin-bottom: 15px;
 }
 
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 3px solid red;
+}
+
+input.ng-valid.ng-touched,
+textarea.ng-valid.ng-touched {
+  border: 3px solid green;
+}
+
+.error-message p {
+  color: red;
+  font-size: 12px;
+  margin: -10px 0 10px 4px;
+}
+
+
 #input, #textarea{
   border: 1px solid black;
 }

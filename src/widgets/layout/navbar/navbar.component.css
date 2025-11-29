@@ -95,14 +95,6 @@
   color: black;
 }
 
-.logout-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-}
-
 .logout-overlay {
   position: fixed;
   top: 0;
