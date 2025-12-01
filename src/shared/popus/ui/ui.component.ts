@@ -7,7 +7,7 @@ import {CommonModule} from '@angular/common';
   templateUrl: './ui.component.html',
   styleUrl: './ui.component.css'
 })
-export class UiComponent {
+export class UiComponentPopup {
 
   @Input() title: string = '';
   @Input() message: string = '';

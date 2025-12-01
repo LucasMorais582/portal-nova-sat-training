@@ -5,12 +5,12 @@ import {HeaderComponent} from '../../../widgets/layout/header/header.component';
 import {CardService} from '../../../shared/card/service/card.service';
 import {Router, RouterLink} from '@angular/router';
 import {Cards} from '../../../shared/card/interface/cards';
-import {UiComponent} from '../../../shared/popus/ui/ui.component';
+import {UiComponentPopup} from '../../../shared/popus/ui/ui.component';
 
 @Component({
   selector: 'app-create-ui-component',
   standalone: true,
-  imports: [FormsModule, CommonModule, HeaderComponent, RouterLink, UiComponent],
+  imports: [FormsModule, CommonModule, HeaderComponent, RouterLink, UiComponentPopup],
   templateUrl: './create-card-component.component.html',
   styleUrl: './create-card-component.component.css'
 })

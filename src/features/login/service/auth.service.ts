@@ -17,7 +17,8 @@ export class AuthService {
 
   addUser(user: User){
     const currentUsers = this.userSource.value;
-    this.userSource.next([...currentUsers, user]);
+    const newUser = { ...user };
+    this.userSource.next([...currentUsers, newUser]);
   }
 
   getUser(): User[] {
@@ -32,11 +33,11 @@ export class AuthService {
     if(user) {
       const fakeToken = 'fake-jwt-token-' + Math.random().toString(36).substring(2);
       localStorage.setItem(this.TOKEN_KEY, fakeToken);
-      console.log("LocalStorage foi escrito!");
       return of(fakeToken).pipe(delay(1000));
     }
     return throwError(() => new Error('Credenciais inválidas'));
   }
+
   isAuthenticated(): boolean {
     return !!localStorage.getItem(this.TOKEN_KEY);
   }
