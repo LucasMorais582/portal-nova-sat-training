@@ -13,12 +13,13 @@ export class ExternopageComponent implements OnInit {
   loading = false;
   error: string | null = null;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     this.loadUsers();
   }
 
+  // Carrega usuários da API externa
   loadUsers() {
     this.loading = true;
     this.error = null;
@@ -34,6 +35,7 @@ export class ExternopageComponent implements OnInit {
     });
   }
 
+  // Tenta carregar novamente em caso de erro
   retry() {
     this.loadUsers();
   }

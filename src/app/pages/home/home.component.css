@@ -1,7 +1,7 @@
-.home-container{
+.home-container {
   display: flex;
   min-height: 100vh;
-  background-color: #e7dede;
+  background-color: var(--background-light);
 }
 
 .content-area {
@@ -9,7 +9,7 @@
   width: 100%;
 }
 
-.content{
+.content {
   padding-left: 250px;
 }
 
@@ -19,7 +19,7 @@ app-sidebar {
   flex-shrink: 0;
 }
 
-app-header{
+app-header {
   width: 100%;
   flex-shrink: 0;
 }

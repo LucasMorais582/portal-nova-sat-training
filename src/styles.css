@@ -1,9 +1,12 @@
-/* Global Styles & Variables */
+/* Estilos Globais e Variáveis */
 :root {
-  /* Color Palette */
-  --primary-color: #2c3e50; /* Deep Blue */
-  --secondary-color: #34495e; /* Darker Blue */
-  --accent-color: #3498db; /* Vibrant Blue */
+  /* Paleta de Cores */
+  --primary-color: #2c3e50;
+  /* Azul Profundo */
+  --secondary-color: #34495e;
+  /* Azul Mais Escuro */
+  --accent-color: #3498db;
+  /* Azul Vibrante */
   --accent-hover: #2980b9;
   --text-color: #333333;
   --text-light: #7f8c8d;
@@ -11,50 +14,113 @@
   --white: #ffffff;
   --success-color: #2ecc71;
   --error-color: #e74c3c;
-  
-  /* Spacing */
+
+  /* Theme Specific */
+  --sidebar-bg: #f4f4f4;
+  --card-bg: #ffffff;
+
+  /* Sidebar Hover - Light Mode */
+  --sidebar-hover-bg: #e0e0e0;
+  --sidebar-hover-text: #333333;
+
+  /* Espaçamento */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
-  --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+  /* Sombras */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
 
-  /* Border Radius */
+  /* Raio da Borda */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
 }
 
-/* Dark Theme */
+/* Tema Escuro */
 .dark {
-  --primary-color: #ffffff;
-  --secondary-color: #f0f0f0;
+  --primary-color: #333333;
+  /* Header Dark Gray */
+  --secondary-color: #b0b0b0;
   --accent-color: #64b5f6;
   --accent-hover: #42a5f5;
   --text-color: #ffffff;
-  --text-light: #b0b0b0;
-  --background-light: #121212;
-  --white: #1e1e1e;
+  --text-light: #d0d0d0;
+  --background-light: #000000;
+  /* Page Black */
+  --white: #333333;
+  /* Map white to dark gray for general containers if needed, but prefer card-bg */
+  --sidebar-bg: #0d1b2a;
+  /* Very Dark Blue */
+  --card-bg: #333333;
+  /* Components Dark Gray */
+
+  /* Sidebar Hover - Dark Mode */
+  --sidebar-hover-bg: #4fc3f7;
+  /* Light Blue */
+  --sidebar-hover-text: #000000;
+  /* Black text for contrast on light blue */
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
-html, body { height: 100%; }
-body { 
-  margin: 0; 
-  font-family: 'Roboto', 'Inter', sans-serif; 
+/* Force pure white text for headings in dark mode */
+.dark h1,
+.dark h2 {
+  color: #ffffff !important;
+}
+
+/* Force white text in dark mode for all common elements */
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.dark p,
+.dark span,
+.dark div,
+.dark li,
+.dark input,
+.dark button,
+.dark label,
+.dark strong,
+.dark i,
+.dark mat-icon,
+.dark a {
+  color: var(--text-color);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Inter', sans-serif;
   background-color: var(--background-light);
   color: var(--text-color);
   line-height: 1.6;
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0;
   font-weight: 600;
   color: var(--primary-color);
@@ -67,9 +133,13 @@ a {
 
 /* Base responsive font sizing */
 @media (max-width: 768px) {
-	body { font-size: 14px; }
+  body {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 480px) {
-	body { font-size: 13px; }
+  body {
+    font-size: 13px;
+  }
 }

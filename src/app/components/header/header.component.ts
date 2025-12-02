@@ -8,7 +8,13 @@ import { ThemeService } from '../../service/theme.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  constructor(private themeService: ThemeService) {}
+  isDarkTheme = false;
+
+  constructor(private themeService: ThemeService) {
+    this.themeService.currentTheme$.subscribe(theme => {
+      this.isDarkTheme = theme === 'dark';
+    });
+  }
 
   toggleTheme() {
     this.themeService.toggleTheme();

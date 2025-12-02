@@ -10,7 +10,7 @@
 .content {
   max-width: 900px;
   width: 1000px;
-  background-color: var(--white);
+  background-color: var(--card-bg);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   padding: var(--spacing-xl);
@@ -18,7 +18,7 @@
 
 h1 {
   font-size: 2.5rem;
-  color: var(--primary-color);
+  color: var(--text-color);
   margin-bottom: var(--spacing-lg);
   text-align: center;
   border-bottom: 2px solid var(--accent-color);

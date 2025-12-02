@@ -6,6 +6,7 @@
   margin-bottom: var(--spacing-lg);
   width: 1000px;
 }
+
 /* Estilo para os Radio Buttons */
 .radio-group {
   display: flex;
@@ -32,7 +33,8 @@
   font-size: 48px;
   width: 48px;
   height: 48px;
-  color: #555; /* Cor do ícone */
+  color: #555;
+  /* Cor do ícone */
   margin-top: 10px;
 }
 
@@ -73,16 +75,22 @@ label {
   font-size: 0.9rem;
 }
 
-input[type="text"], textarea {
+input[type="text"],
+textarea {
   padding: 10px;
   border: 1px solid #dce4ec;
   border-radius: var(--radius-sm);
   font-family: inherit;
   font-size: 0.95rem;
   transition: border-color 0.3s ease;
+  background-color: #ffffff;
+  /* Force White */
+  color: #000000;
+  /* Force Black */
 }
 
-input[type="text"]:focus, textarea:focus {
+input[type="text"]:focus,
+textarea:focus {
   outline: none;
   border-color: var(--accent-color);
 }

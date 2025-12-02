@@ -1,0 +1,99 @@
+.container {
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    background-color: var(--background-light);
+    min-height: 100%;
+}
+
+.content {
+    width: 1000px;
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-xl);
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: var(--spacing-sm);
+    display: inline-block;
+}
+
+.loading-state,
+.error-state {
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--text-light);
+}
+
+.error-state p {
+    color: var(--error-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.btn-retry {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-retry:hover {
+    background-color: var(--accent-hover);
+}
+
+.user-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-item {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.user-item:last-child {
+    border-bottom: none;
+}
+
+.user-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Dark mode specific hover adjustment if needed, 
+   but since we don't have a .dark parent selector easily accessible here without :host-context or global styles,
+   we rely on the fact that rgba(0,0,0,0.05) is subtle. 
+   Actually, for dark mode, we want a light overlay. 
+   Let's use a variable or a safe color. 
+   Better yet, let's use a semi-transparent color that works on both or just a simple color change.
+*/
+/* Since we can't easily target .dark mode inside this component without ViewEncapsulation.None or :host-context(.dark),
+   and we are using CSS variables, let's try to be smart.
+   However, standard practice with variables:
+*/
+/* Let's assume we want a slight highlight. */
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.user-name {
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.user-email {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}

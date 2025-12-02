@@ -20,15 +20,18 @@ export class UsuariosListComponent {
   isDetailsModalOpen = false;
   userForDetails: User | null = null;
 
+  // Emite evento de edição
   onEdit(user: User) {
     this.edit.emit(user);
   }
 
+  // Abre modal de confirmação de exclusão
   onDelete(user: User) {
     this.userToDelete = user;
     this.isModalOpen = true;
   }
 
+  // Confirma exclusão e emite evento
   onConfirmDelete() {
     if (this.userToDelete) {
       this.delete.emit(this.userToDelete.id);
@@ -37,16 +40,19 @@ export class UsuariosListComponent {
     }
   }
 
+  // Cancela exclusão e fecha modal
   onCancelDelete() {
     this.isModalOpen = false;
     this.userToDelete = null;
   }
 
+  // Abre modal de detalhes
   onDetails(user: User) {
     this.userForDetails = user;
     this.isDetailsModalOpen = true;
   }
 
+  // Fecha modal de detalhes
   onCloseDetails() {
     this.isDetailsModalOpen = false;
     this.userForDetails = null;

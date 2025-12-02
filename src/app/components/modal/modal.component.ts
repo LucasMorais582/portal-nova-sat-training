@@ -12,6 +12,7 @@ export class ModalComponent {
   @Input() isOpen: boolean = false;
   @Output() close = new EventEmitter();
 
+  // Fecha o modal
   onClose() {
     this.close.emit();
   }

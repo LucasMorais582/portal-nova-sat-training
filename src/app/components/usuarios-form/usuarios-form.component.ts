@@ -16,15 +16,17 @@ export class UsuariosFormComponent implements OnInit {
 
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    // Inicializa o formulário com validações
     this.form = this.fb.group({
       name: [this.user?.name || '', Validators.required],
       email: [this.user?.email || '', [Validators.required, Validators.email]]
     });
   }
 
+  // Salva o formulário se for válido
   onSave() {
     if (this.form.valid) {
       const userData = this.form.value;
@@ -36,6 +38,7 @@ export class UsuariosFormComponent implements OnInit {
     }
   }
 
+  // Cancela a operação
   onCancel() {
     this.cancel.emit();
   }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { Card } from '../model/card';
 
 @Injectable({
@@ -11,10 +10,10 @@ export class CardService {
 
   /** URL do arquivo JSON com os dados iniciais dos cards */
   private dataUrl = 'assets/data/cards.json';
-  
+
   /** Subject para gerenciar o estado dos cards */
   private cardsSubject = new BehaviorSubject<Card[]>([]);
-  
+
   /** Observable exposto para os componentes consumirem a lista de cards */
   cards$ = this.cardsSubject.asObservable();
 
@@ -57,7 +56,7 @@ export class CardService {
     // Simula uma chamada HTTP para apagar o card
     return {
       subscribe: (callback: (res: any) => void) => {
-        console.log(`Card with ID ${cardId} deleted.`);
+        console.log(`Card com ID ${cardId} deletado.`);
         callback({ success: true });
       }
     };

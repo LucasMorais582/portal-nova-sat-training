@@ -25,9 +25,12 @@
 
 /* Garante que o título ocupe a linha inteira e alinhe o texto à esquerda */
 .main-content h1 {
-  width: 100%;      /* Força o elemento a esticar de ponta a ponta */
-  text-align: left; /* Garante que o texto fique na esquerda */
-  margin-bottom: 10px; /* Um respiro antes do card */
+  width: 100%;
+  /* Força o elemento a esticar de ponta a ponta */
+  text-align: left;
+  /* Garante que o texto fique na esquerda */
+  margin-bottom: 10px;
+  /* Um respiro antes do card */
 }
 
 /* (Opcional) Se quiser garantir que o flex não bagunce */
@@ -48,7 +51,8 @@ h2 {
   padding-left: var(--spacing-sm);
 }
 
-.dashboard-section, .cards-section {
+.dashboard-section,
+.cards-section {
   background-color: transparent;
   border-radius: var(--radius-md);
   border-color: black;
@@ -59,7 +63,8 @@ h2 {
   /* Adicione estas duas linhas para corrigir o comportamento do elemento */
   display: inline-block;
   width: 100%;
-  background-color: white; /* Garante transparência */
+  background-color: var(--sidebar-bg);
+  /* Garante transparência */
   padding: 50px;
 }
 

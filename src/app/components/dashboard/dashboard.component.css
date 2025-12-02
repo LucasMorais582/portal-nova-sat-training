@@ -10,7 +10,7 @@
 
 .page-title {
   margin-bottom: 20px;
-  color: #333;
+  color: var(--text-color);
   font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
@@ -23,7 +23,17 @@
 
 .stats-card {
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: var(--card-bg);
+}
+
+mat-card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+mat-card-title {
+  color: var(--text-color);
 }
 
 .card-flex {
@@ -34,20 +44,35 @@
 }
 
 .card-title {
-  color: #666; margin: 0; font-size: 0.9rem;
+  color: var(--text-light);
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 .card-value {
-  margin: 5px 0 0 0; font-weight: bold; font-size: 1.6rem;
+  margin: 5px 0 0 0;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: var(--text-color);
 }
 
 .card-icon {
-  font-size: 42px; height: 42px; width: 42px;
+  font-size: 42px;
+  height: 42px;
+  width: 42px;
 }
 
-.text-green { color: #4caf50; }
-.text-blue { color: #2196f3; }
-.text-orange { color: #ff9800; }
+.text-green {
+  color: #4caf50;
+}
+
+.text-blue {
+  color: #2196f3;
+}
+
+.text-orange {
+  color: #ff9800;
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -56,4 +81,3 @@
     padding: 10px;
   }
 }
-

@@ -1,10 +1,24 @@
-<h1>Gerenciamento de Usuários</h1>
-<input [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Buscar por nome ou email...">
-<button (click)="onAdd()">Adicionar Usuário</button>
-<app-usuarios-list [users]="paginatedUsers" (edit)="onEdit($event)" (delete)="onDelete($event)"></app-usuarios-list>
-<div class="pagination">
-  <button (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
-  <span>Página {{ currentPage }} de {{ totalPages }}</span>
-  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Próxima</button>
+<div class="container">
+  <div class="content">
+    <h1>Gerenciamento de Usuários</h1>
+
+    <div class="actions-bar">
+      <input class="search-input" [(ngModel)]="searchTerm" (input)="onSearch()"
+        placeholder="Buscar por nome ou email...">
+      <button class="btn-primary" (click)="onAdd()">Adicionar Usuário</button>
+    </div>
+
+    <app-usuarios-list [users]="paginatedUsers" (edit)="onEdit($event)" (delete)="onDelete($event)"></app-usuarios-list>
+
+    <div class="pagination">
+      <button class="btn-secondary" (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
+      <span class="page-info">Página {{ currentPage }} de {{ totalPages }}</span>
+      <button class="btn-secondary" (click)="nextPage()" [disabled]="currentPage === totalPages">Próxima</button>
+    </div>
+  </div>
 </div>
-<app-usuarios-form *ngIf="isEditing" [user]="currentUser" (save)="onSave($event)" (cancel)="onCancel()"></app-usuarios-form>
+
+<app-modal [isOpen]="isEditing" [title]="modalTitle" (close)="onCancel()">
+  <app-usuarios-form *ngIf="isEditing" [user]="currentUser" (save)="onSave($event)"
+    (cancel)="onCancel()"></app-usuarios-form>
+</app-modal>

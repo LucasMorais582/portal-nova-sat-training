@@ -1,8 +1,17 @@
-<div class = "container-header">
-  <!-- Logo da aplicação -->
-  <img src="assets/documentoslogo.png" alt="logo" class="imagem">
-  <!-- Título da aplicação -->
-  <h1>App Sat</h1>
+<div class="container-header">
+  <div class="logo-container">
+    <!-- Logo da aplicação -->
+    <img src="assets/documentoslogo.png" alt="logo" class="imagem">
+    <!-- Título da aplicação -->
+    <h1>App Sat</h1>
+  </div>
+
   <!-- Botão de alternância de tema -->
-  <button (click)="toggleTheme()" class="theme-toggle">🌙</button>
+  <label class="theme-switch">
+    <input type="checkbox" [checked]="isDarkTheme" (change)="toggleTheme()">
+    <span class="slider round">
+      <span class="icon sun">☀️</span>
+      <span class="icon moon">🌙</span>
+    </span>
+  </label>
 </div>

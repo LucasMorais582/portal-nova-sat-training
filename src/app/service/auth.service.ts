@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { delay, tap } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -59,7 +58,18 @@ export class AuthService {
 
     private getUsers(): any[] {
         const users = localStorage.getItem(this.usersKey);
-        return users ? JSON.parse(users) : [];
+        if (users) {
+            return JSON.parse(users);
+        }
+
+        // Cria usuário padrão se não houver usuários
+        const defaultUser = {
+            email: 'admin@email.com',
+            password: '123456',
+            name: 'Admin'
+        };
+        localStorage.setItem(this.usersKey, JSON.stringify([defaultUser]));
+        return [defaultUser];
     }
 
     /**
