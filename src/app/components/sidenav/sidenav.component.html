@@ -27,7 +27,10 @@
           <i class="material-icons">contact_page</i>Contato
         </a>
 
-
+        <!-- Botão de Logout -->
+        <a mat-list-item (click)="logout()" class="nav-link logout-link">
+          <i class="material-icons">logout</i>Sair
+        </a>
 
       </mat-nav-list>
     </mat-drawer>
@@ -80,6 +83,9 @@
       <a mat-list-item [routerLink]="['/contact']" routerLinkActive="active" class="nav-link"
         (click)="toggleMobileMenu()">
         <i class="material-icons">contact_page</i>Contact
+      </a>
+      <a mat-list-item (click)="logout(); toggleMobileMenu()" class="nav-link logout-link">
+        <i class="material-icons">logout</i>Sair
       </a>
     </mat-nav-list>
   </div>

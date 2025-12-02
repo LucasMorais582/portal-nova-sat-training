@@ -37,7 +37,7 @@ export class RegisterComponent {
             this.authService.register(user).subscribe({
                 next: () => {
                     this.isLoading = false;
-                    this.router.navigate(['/login']); // Redirect to login after registration
+                    this.router.navigate(['/login']); 
                 },
                 error: (err) => {
                     this.isLoading = false;
