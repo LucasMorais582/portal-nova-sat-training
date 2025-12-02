@@ -1,0 +1,36 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>
+        <button (click)="onDetails(user)">Detalhes</button>
+        <button (click)="onEdit(user)">Editar</button>
+        <button (click)="onDelete(user)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-modal [isOpen]="isModalOpen" title="Confirmar Exclusão" (close)="onCancelDelete()">
+  <p>Tem certeza que deseja excluir o usuário <strong>{{ userToDelete?.name }}</strong>?</p>
+  <div>
+    <button (click)="onConfirmDelete()">Sim</button>
+    <button (click)="onCancelDelete()">Não</button>
+  </div>
+</app-modal>
+
+<app-modal [isOpen]="isDetailsModalOpen" title="Detalhes do Usuário" (close)="onCloseDetails()">
+  <p><strong>ID:</strong> {{ userForDetails?.id }}</p>
+  <p><strong>Nome:</strong> {{ userForDetails?.name }}</p>
+  <p><strong>Email:</strong> {{ userForDetails?.email }}</p>
+</app-modal>

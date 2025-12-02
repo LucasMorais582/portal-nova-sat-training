@@ -1,0 +1,12 @@
+<form [formGroup]="form" (ngSubmit)="onSave()">
+  <div>
+    <label for="name">Nome:</label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" type="email" formControlName="email">
+  </div>
+  <button type="submit" [disabled]="!form.valid">Salvar</button>
+  <button type="button" (click)="onCancel()">Cancelar</button>
+</form>

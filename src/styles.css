@@ -30,6 +30,18 @@
   --radius-lg: 12px;
 }
 
+/* Dark Theme */
+.dark {
+  --primary-color: #ffffff;
+  --secondary-color: #f0f0f0;
+  --accent-color: #64b5f6;
+  --accent-hover: #42a5f5;
+  --text-color: #ffffff;
+  --text-light: #b0b0b0;
+  --background-light: #121212;
+  --white: #1e1e1e;
+}
+
 html, body { height: 100%; }
 body { 
   margin: 0; 

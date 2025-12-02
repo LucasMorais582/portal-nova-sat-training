@@ -1,0 +1,10 @@
+<h1>Gerenciamento de Usuários</h1>
+<input [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Buscar por nome ou email...">
+<button (click)="onAdd()">Adicionar Usuário</button>
+<app-usuarios-list [users]="paginatedUsers" (edit)="onEdit($event)" (delete)="onDelete($event)"></app-usuarios-list>
+<div class="pagination">
+  <button (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
+  <span>Página {{ currentPage }} de {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Próxima</button>
+</div>
+<app-usuarios-form *ngIf="isEditing" [user]="currentUser" (save)="onSave($event)" (cancel)="onCancel()"></app-usuarios-form>

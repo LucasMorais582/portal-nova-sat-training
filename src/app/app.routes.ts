@@ -42,6 +42,16 @@ export const routes: Routes = [
       {
         path: 'cards-create',
         loadComponent: () => import('./pages/creationcardpage/creationcardpage.component').then(mod => mod.CreationcardpageComponent)
+      },
+      // Rota para a página de Usuários
+      {
+        path: 'usuarios',
+        loadComponent: () => import('./pages/usuariospage/usuariospage.component').then(mod => mod.UsuariospageComponent)
+      },
+      // Rota para a página Externa
+      {
+        path: 'externo',
+        loadComponent: () => import('./pages/externopage/externopage.component').then(mod => mod.ExternopageComponent)
       }
     ]
   }

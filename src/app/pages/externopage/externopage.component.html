@@ -1,0 +1,18 @@
+<h1>Usuários Externos</h1>
+
+<div *ngIf="loading">
+  <p>Carregando...</p>
+</div>
+
+<div *ngIf="error">
+  <p>{{ error }}</p>
+  <button (click)="retry()">Tentar Novamente</button>
+</div>
+
+<div *ngIf="!loading && !error">
+  <ul>
+    <li *ngFor="let user of users">
+      <strong>{{ user.name }}</strong> - {{ user.email }}
+    </li>
+  </ul>
+</div>

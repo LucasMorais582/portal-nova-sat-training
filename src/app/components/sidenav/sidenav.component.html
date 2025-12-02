@@ -18,6 +18,14 @@
           <i class="material-icons">add</i>Criação de Cards
         </a>
 
+        <a mat-list-item [routerLink]="['/usuarios']" routerLinkActive="active" class="nav-link">
+          <i class="material-icons">people</i>Usuários
+        </a>
+
+        <a mat-list-item [routerLink]="['/externo']" routerLinkActive="active" class="nav-link">
+          <i class="material-icons">public</i>Externo
+        </a>
+
         <!-- Link para a página Sobre -->
         <a mat-list-item [routerLink]="['/about']" routerLinkActive="active" class="nav-link">
           <i class="material-icons">info</i>Sobre
@@ -75,6 +83,14 @@
       <a mat-list-item [routerLink]="['/cards-create']" routerLinkActive="active" class="nav-link"
         (click)="toggleMobileMenu()">
         <i class="material-icons">add</i>Criação de Cards
+      </a>
+      <a mat-list-item [routerLink]="['/usuarios']" routerLinkActive="active" class="nav-link"
+        (click)="toggleMobileMenu()">
+        <i class="material-icons">people</i>Usuários
+      </a>
+      <a mat-list-item [routerLink]="['/externo']" routerLinkActive="active" class="nav-link"
+        (click)="toggleMobileMenu()">
+        <i class="material-icons">public</i>Externo
       </a>
       <a mat-list-item [routerLink]="['/about']" routerLinkActive="active" class="nav-link"
         (click)="toggleMobileMenu()">
