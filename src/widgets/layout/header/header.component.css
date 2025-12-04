@@ -1,0 +1,36 @@
+#header{
+  background-color: black;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+}
+
+#logoFrase{
+  position: absolute;
+  left: 100px;
+}
+
+#logoFrase a{
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+#logoFrase a:hover {
+  text-decoration: underline;
+  color: gray;
+}
+
+#logo{
+  background-color: coral;
+  border-radius: 30px;
+  height: 45px;
+  margin-top: 5px;
+}
+
+#logoLink{
+  margin-left: 30px;
+}

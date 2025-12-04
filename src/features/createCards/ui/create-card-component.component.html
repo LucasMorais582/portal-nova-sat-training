@@ -1,0 +1,85 @@
+<app-header></app-header>
+<main class="conteiner">
+  <h3 id="buttonBackTheHome" routerLink="/home">←Voltar</h3>
+  <form #formulario="ngForm" id="formulario" (ngSubmit)="submitForm(formulario)">
+    <nav id="content">
+      <h1>Numeração do PA/IC:</h1>
+      <input id="input"
+             type="text"
+             name="numeroPAIC"
+             placeholder="Numero do PA/IC"
+             maxlength="10"
+             minlength="10"
+             pattern="^[0-9]{10}$"
+             required
+             [(ngModel)]="formData.numberPaIc"
+             #numeroPAIC="ngModel">
+
+      <div class="error-message" *ngIf="numeroPAIC.invalid && numeroPAIC.touched">
+        <p *ngIf="numeroPAIC.errors?.['required']">Campo obrigatório.</p>
+        <p *ngIf="numeroPAIC.errors?.['minlength']">Digite exatamente 10 dígitos.</p>
+        <p *ngIf="numeroPAIC.errors?.['pattern']">Apenas números são permitidos.</p>
+      </div>
+    </nav>
+    <nav id="content">
+      <h1>Objetivo:</h1>
+      <input id="input"
+             type="text"
+             name="objetivo"
+             placeholder="Objetivo"
+             required
+             minlength="15"
+             [(ngModel)]="formData.objective"
+             #objetivo="ngModel">
+      <div class="error-message" *ngIf="objetivo.invalid && objetivo.touched">
+        <p *ngIf="objetivo.errors?.['required']">Campo obrigatório.</p>
+        <p *ngIf="objetivo.errors?.['minlength']">O objetivo deve ter pelo menos 15 caracteres.</p>
+      </div>
+    </nav>
+    <nav id="content">
+      <h1>Descrição: </h1>
+      <textarea id="textArea"
+                cols="40"
+                rows="10"
+                name="descricao"
+                placeholder="Descrição ou Detalhes"
+                required
+                minlength="20"
+                [(ngModel)]="formData.description"
+                #descricao="ngModel"></textarea>
+      <div class="error-message" *ngIf="descricao.invalid && descricao.touched">
+        <p *ngIf="descricao.errors?.['required']">Campo obrigatório.</p>
+        <p *ngIf="descricao.errors?.['minlength']">A descrição deve ter pelo menos 20 caracteres.</p>
+      </div>
+    </nav>
+    <nav id="content">
+      <h1>Upload de Documentos</h1>
+      <input id="fileDocuments"
+             type="file"
+             multiple
+             (change)="onFileSelected($event)"
+             name="arquivos">
+      <ul>
+        <li *ngFor="let file of selectedFiles">
+          {{ file.name }} - {{ (file.size / 1024) | number:'1.0-0' }} KB
+        </li>
+      </ul>
+    </nav>
+
+    <button id="buttonCreateCard"
+            type="submit">
+      Criar Card
+    </button>
+
+  </form>
+
+  <app-popup
+    *ngIf="showPopup"
+    typeImg="success"
+    [title]="'Criado!'"
+    [message]="'Você criou uma SAT com sucesso.'"
+    [confirmText]="'OK'"
+    (confirm)="onConfirmed()">
+  </app-popup>
+
+</main>

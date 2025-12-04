@@ -1,0 +1,168 @@
+<div class="containerPrincipal">
+  <div id="containerContentLogo">
+    <img src="assets/image/corujaLogin.png" alt="Logo Coruja">
+    <p id="fraseLogo">
+      Faça o login para entrar no portal, ou crie uma nova conta!
+    </p>
+  </div>
+  <div id="containerContentRegister">
+    <form  class="formCompleto" #formulario = 'ngForm'>
+
+      <div id="formGroupRegister" [class.open]="menuIsOpen">
+
+        <button
+          id="buttonToggleLogin"
+          type="button"
+          (click)="toggleMenu()"
+        >
+          <p>Login</p>
+        </button>
+
+        <h2 id="titleRegister">Faça o Registro</h2>
+
+        <label for="name">Nome:</label>
+        <input
+          type="text"
+          id="input"
+          name="name"
+          required
+          placeholder="Name"
+          pattern="^[a-zA-Z]*$"
+          minlength="4"
+          [(ngModel)]="user.name"
+          #name='ngModel'
+        />
+
+        <div class="error-message" *ngIf="name.invalid && name.touched">
+          <p *ngIf="name.errors?.['required']">Campo Obrigatório.</p>
+          <p *ngIf="name.errors?.['minlength']">O nome deve ter no minimo 4 letras.</p>
+          <p *ngIf="name.errors?.['pattern']">Nome Invalido.</p>
+        </div>
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="input"
+          name="email"
+          required
+          placeholder="Email"
+          pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+          [(ngModel)]="user.email"
+          #email='ngModel'
+        />
+
+        <div class="error-message" *ngIf="email.invalid && email.touched">
+          <p *ngIf="email.errors?.['required']">Campo Obrigatório.</p>
+          <p *ngIf="email.errors?.['pattern']">Email Invalido.</p>
+        </div>
+
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="input"
+          name="password"
+          required
+          placeholder="Password"
+          minlength="8"
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$"
+          [(ngModel)]="user.password"
+          #password='ngModel'
+        />
+
+        <div class="error-message" *ngIf="password.invalid && password.touched">
+          <p *ngIf="password.errors?.['required']">Campo Obrigatório.</p>
+          <p *ngIf="password.errors?.['pattern']">Senha Invalida.</p>
+          <p *ngIf="password.errors?.['minlenght']">A senha deve ter no minimo 8 digitos</p>
+          <p *ngIf="password.errors?.['pattern']">ela deve conter um caracter especial, letras maiunsculas e minusculas, e numeros.</p>
+        </div>
+
+        <button type="submit" id="buttonSubmitRegistrar" (click)="addUser()" [disabled]="formulario.invalid">Registrar</button>
+      </div>
+      <div id="formGroupLogin" [class.open]="!menuIsOpen">
+
+        <button
+          id="buttonToggleRegister"
+          type="button"
+          (click)="toggleMenu()"
+        >
+          <p>Register</p>
+        </button>
+
+        <h2 id="titleRegister">Faça o Login</h2>
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="input"
+          name="email"
+          required
+          placeholder="Email"
+          [(ngModel)]="user.email"
+          #email='ngModel'
+        />
+
+        <div class="error-message" *ngIf="email.invalid && email.touched">
+          <p *ngIf="email.errors?.['required']">Campo Obrigatório.</p>
+          <p *ngIf="email.errors?.['pattern']">Email Invalido.</p>
+        </div>
+
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="input"
+          name="password"
+          required
+          placeholder="Password"
+          [(ngModel)]="user.password"
+          #password='ngModel'
+        />
+
+        <div class="error-message" *ngIf="password.invalid && password.touched">
+          <p *ngIf="password.errors?.['required']">Campo Obrigatório.</p>
+          <p *ngIf="password.errors?.['pattern']">Senha Invalida.</p>
+          <p *ngIf="password.errors?.['minlenght']">A senha deve ter no minimo 8 digitos</p>
+          <p *ngIf="password.errors?.['pattern']">ela deve conter um caracter especial, letras maiunsculas e minusculas, e numeros.</p>
+        </div>
+
+        <button type="submit" id="buttonSubmitLogin" (click)="login()">Logar</button>
+      </div>
+    </form>
+
+    <app-popup
+      *ngIf="popupRegisterToggle"
+      typeImg="success"
+      [title]="'Usuário Criado!'"
+      [message]="'Usuário registrado com sucesso'"
+      [confirmText]="'OK'"
+      (confirm)="onConfirmedPopup()">
+    </app-popup>
+
+    <app-popup
+      *ngIf="popupLoginToggle"
+      typeImg="success"
+      [title]="'Login efeituado com sucesso'"
+      [message]="'Login feito com sucesso'"
+      [confirmText]="'OK'"
+      (confirm)="onConfirmedPopup()">
+    </app-popup>
+
+    <app-popup
+      *ngIf="popupErrorToggle"
+      typeImg="error"
+      [title]="'Login não autorizado'"
+      [message]="'Credencias incorretas.'"
+      [confirmText]="'OK'"
+      (confirm)="onConfirmedPopup()">
+    </app-popup>
+
+    <app-popup
+      *ngIf="popupEmailExistsToggle"
+      typeImg="warning"
+      [title]="'Erro ao Registrar'"
+      [message]="'já existe esse email, tente fazer login.'"
+      [confirmText]="'OK'"
+      (confirm)="onConfirmedPopup()">
+    </app-popup>
+
+  </div>
+</div>

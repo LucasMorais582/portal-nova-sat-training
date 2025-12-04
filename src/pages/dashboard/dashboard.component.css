@@ -1,0 +1,8 @@
+.conteiner{
+  display: grid;
+
+}
+
+body{
+  background-color: var(--cor-fundo);
+}

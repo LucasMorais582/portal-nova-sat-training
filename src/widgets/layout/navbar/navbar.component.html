@@ -1,0 +1,69 @@
+<body class="navigationContent">
+<nav id="content" [class.hidden]="isMenuOpen">
+
+  <div class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <a routerLink="/newsat" (click)="closeMenu()">
+      <img src="../../../assets/image/add_circle_25dp__FILL0_wght400_GRAD0_opsz24.png" alt="New SAT Icon" id="newSatIcon" class="imgNavBar"/>
+      New SAT
+    </a>
+  </div>
+
+  <div class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <a routerLink="/home" (click)="closeMenu()">
+      <img src="../../../assets/image/home_25dp__FILL0_wght400_GRAD0_opsz24.png" alt="Home Icon" id="homeIcon" class="imgNavBar"/>
+      Home
+    </a>
+  </div>
+
+  <div class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <a routerLink="/about" (click)="closeMenu()">
+      <img src="../../../assets/image/account_box_25dp__FILL0_wght400_GRAD0_opsz24.png" alt="About Icon" id="aboutIcon" class="imgNavBar"/>
+      About
+    </a>
+  </div>
+
+  <div class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <a routerLink="/contact" (click)="closeMenu()">
+      <img src="../../../assets/image/contact_page_25dp__FILL0_wght400_GRAD0_opsz24.png" alt="Contact Icon" id="contactIcon" class="imgNavBar"/>
+      Contact
+    </a>
+  </div>
+
+  <div class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <a routerLink="/users" (click)="closeMenu()">
+      <img src="../../../assets/image/imageGroupUsers.png" alt="groupt Icon" id="groupIcon" class="imgNavBar"/>
+      Users
+    </a>
+  </div>
+
+  <div class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <a (click)="closeMenu(); openLogout()">
+      <img src="../../../assets/image/botaoLogout.png" id="logoutIcon" class="imgNavBar"/>
+      Logout
+    </a>
+  </div>
+
+</nav>
+</body>
+
+<button id="menuButton" [class.active]="isMenuOpen" (click)="toggleMenu()">☰</button>
+
+<div class="mobileMenu" [class.open]="isMenuOpen">
+  <a routerLink="/newsat" (click)="closeMenu()">New SAT</a>
+  <a routerLink="/home" (click)="closeMenu()">Home</a>
+  <a routerLink="/about" (click)="closeMenu()">About</a>
+  <a routerLink="/contact" (click)="closeMenu()">Contact</a>
+  <a routerLink="/users" (click)="closeMenu()">Users</a>
+  <a (click)="closeMenu(); openLogout()">Logout</a>
+</div>
+
+<div class="logout-overlay" *ngIf="showLogout">
+  <div class="screenLogout">
+    <h2>Deseja realmente sair?</h2>
+
+    <div class="logout-buttons">
+      <button class="btn-yes" (click)="confirmLogout()">Sim</button>
+      <button class="btn-no" (click)="cancelLogout()">Não</button>
+    </div>
+  </div>
+</div>
