@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 export class UsersFormComponent {
 
   newUser = {
-    name: 'helio',
+    name: 'torres',
     email: 'teste@teste.com',
     password: '12345'
   }
@@ -25,14 +25,17 @@ export class UsersFormComponent {
 
 
   getListaUsuarios(): void{
-    this.userService.getAll().subscribe((user) => this.listaUsuarios = user)
+    this.userService.get().subscribe((user) => this.listaUsuarios = user)
   }
 
   postAdicionarUsuarios(): void{
-    this.userService.postUser(this.newUser).subscribe({
+    this.userService.post(this.newUser).subscribe({
       next: (response) => {
         console.log('Post criado com sucesso', response);
         this.newUser = {name: '', email: '', password: ''};
+      },
+      error: (error) => {
+        console.log('o post não foi criado', error);
       }
     })
   }

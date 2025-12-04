@@ -5,6 +5,7 @@ import {AuthService} from '../service/auth.service';
 import {Router} from '@angular/router';
 import {NgIf} from '@angular/common';
 import {UiComponentPopup} from '../../../shared/popus/ui/ui.component';
+import {UsersServiceService} from '../../users/service/usersService.service';
 
 @Component({
   selector: 'app-ui',
@@ -26,7 +27,8 @@ export class UiComponent {
 };
 
   constructor(public authService: AuthService,
-              public router: Router) {
+              public router: Router,
+              public userService: UsersServiceService) {
   }
 
   protected toggleMenu(): void {
@@ -37,6 +39,8 @@ export class UiComponent {
   protected popupRegisterToggle: boolean = false;
   protected popupLoginToggle: boolean = false;
   protected popupErrorToggle: boolean = false;
+  protected popupEmailExistsToggle: boolean = false;
+
 
   onConfirmedPopup() {
     if (this.popupLoginToggle) {
@@ -50,6 +54,10 @@ export class UiComponent {
 
     if(this.popupErrorToggle){
       this.popupErrorToggle = false;
+    }
+
+    if (this.popupEmailExistsToggle) {
+      this.popupEmailExistsToggle = false;
     }
   }
 
@@ -92,17 +100,34 @@ export class UiComponent {
     return true;
   }
 
-  addUser(){
+  addUser() {
     const isNameValid = this.validationName(this.user.name);
     const isEmailValid = this.validationEmail(this.user.email);
     const isPasswordValid = this.validationPassword(this.user.password);
 
-    if(isNameValid && isEmailValid && isPasswordValid){
-      this.authService.addUser(this.user);
-        this.popupRegisterToggle = true;
-        this.menuIsOpen = !this.menuIsOpen;
+    if (!isNameValid || !isEmailValid || !isPasswordValid) {
+      this.popupErrorToggle = true;
+      return;
     }
+
+    this.userService.getByEmail(this.user.email).subscribe({
+      next: (users) => {
+        if (users.length > 0) {
+          this.popupEmailExistsToggle = true;
+          return;
+        }
+
+        this.authService.addUser(this.user);
+        this.popupRegisterToggle = true;
+        this.menuIsOpen = false;
+      },
+      error: (err) => {
+        console.error('Erro ao buscar email', err);
+        this.popupErrorToggle = true;
+      }
+    });
   }
+
 
   login() {
     const isEmailValid = this.validationEmail(this.user.email);

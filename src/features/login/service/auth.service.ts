@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable, output} from '@angular/core';
 import {Router} from '@angular/router';
-import {BehaviorSubject, delay, Observable, of, throwError} from 'rxjs';
+import {BehaviorSubject, catchError, delay, map, Observable, of, throwError} from 'rxjs';
 import { User } from '../interface/User';
+import {HttpClient, HttpResponse} from '@angular/common/http';
+import {UsersServiceService} from '../../users/service/usersService.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,32 +12,54 @@ export class AuthService {
 
   private readonly TOKEN_KEY = 'auth_token';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private userService: UsersServiceService) {}
 
   private userSource = new BehaviorSubject<any[]>([]);
   $user = this.userSource.asObservable();
 
-  addUser(user: User){
-    const currentUsers = this.userSource.value;
-    const newUser = { ...user };
-    this.userSource.next([...currentUsers, newUser]);
+  addUser(user: User): void {
+    this.userService.getByEmail(user.email).subscribe({
+      next: (users) => {
+        if (users.length > 0) {
+          console.error('Email já existe!');
+          return;
+        }
+
+        this.userService.post(user).subscribe({
+          next: (response) => {
+            console.log('Usuário criado:', response);
+          },
+          error: (error) => {
+            console.error('Erro ao criar usuário:', error);
+          }
+        });
+      },
+      error: (error) => {
+        console.error('Erro ao buscar email:', error);
+      }
+    });
   }
 
-  getUser(): User[] {
-    return this.userSource.value;
+  getUsers(): Observable<User[]>{
+    return this.userService.get();
   }
 
-  login(email:String, password:String): Observable<String> {
+  login(email: string, password: string): Observable<string> {
+    return this.getUsers().pipe(
+      map((users: User[]) => {
+        const user = users.find(u => u.email === email && u.password === password);
 
-    const users = this.getUser();
-    const user = users.find(u => u.email === email && u.password === password);
+        if (user) {
+          const fakeToken = 'fake-jwt-token-' + Math.random().toString(36).substring(2);
+          localStorage.setItem(this.TOKEN_KEY, fakeToken);
+          return fakeToken;
+        }
 
-    if(user) {
-      const fakeToken = 'fake-jwt-token-' + Math.random().toString(36).substring(2);
-      localStorage.setItem(this.TOKEN_KEY, fakeToken);
-      return of(fakeToken).pipe(delay(1000));
-    }
-    return throwError(() => new Error('Credenciais inválidas'));
+        throw new Error('Credenciais inválidas');
+      }),
+      catchError(() => throwError(() => new Error('Credenciais inválidas')))
+    );
   }
 
   isAuthenticated(): boolean {

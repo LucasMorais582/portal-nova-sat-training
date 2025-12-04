@@ -155,5 +155,14 @@
       (confirm)="onConfirmedPopup()">
     </app-popup>
 
+    <app-popup
+      *ngIf="popupEmailExistsToggle"
+      typeImg="warning"
+      [title]="'Erro ao Registrar'"
+      [message]="'já existe esse email, tente fazer login.'"
+      [confirmText]="'OK'"
+      (confirm)="onConfirmedPopup()">
+    </app-popup>
+
   </div>
 </div>

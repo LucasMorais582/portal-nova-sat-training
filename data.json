@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "c981",
+      "name": "helio",
+      "email": "teste@teste.com",
+      "password": "12345"
+    },
+    {
+      "id": "700b",
+      "name": "torres",
+      "email": "teste@teste.com",
+      "password": "12345"
+    },
+    {
+      "id": "e26a",
+      "name": "torres",
+      "email": "teste@teste.com",
+      "password": "12345"
+    },
+    {
+      "id": "2858",
+      "name": "helio",
+      "email": "apenasumteste@teste.com",
+      "password": "hallo32K@"
+    },
+    {
+      "id": "b621",
+      "name": "helio",
+      "email": "helinhofagundespereira@gmail.com",
+      "password": "hallo32K@@"
+    },
+    {
+      "id": "18cc",
+      "name": "helio",
+      "email": "helinhofagundespereira@gmail.com",
+      "password": "hallo32K@"
+    }
+  ]
+}
