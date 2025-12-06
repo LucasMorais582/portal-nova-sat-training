@@ -17,7 +17,7 @@ private apiUrl = '/users';
     };
 
   getById(id: string): Observable<UsersInterface>{
-    return this.http.get<UsersInterface>(`${this.apiUrl}/${id}`);
+    return this.http.get<UsersInterface>(`${this.apiUrl}?id=${id}`);
   }
 
   getByEmail(email: string): Observable<UsersInterface[]> {

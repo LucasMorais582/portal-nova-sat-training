@@ -7,49 +7,50 @@
   max-width: 260px;
   min-width: 180px;
 
-  width: var(--width-navBar);
-  height: var(--full-height);
+  width: var(--w-1-5);
+  height: var(--h-full);
   box-shadow: var(--shadow-sm);
-  background-color: var(--background-gray);
+  background-color: var(--color-gray-400);
+  transition: var(--transition-normal);
 }
 
 #content {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 80px;
 
-  height: var(--large-height);
-  width: var(--full-width);
+  padding-top: var(--space-20);
+  height: var(--h-full);
+  width: var(--w-full);
 }
 
 .nav-item {
   height: 40px;
 
-  width: var(--full-width);
+  width: var(--w-full);
 }
 
 .nav-item a {
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  padding-left: 20px;
   text-decoration: none;
-  font-weight: 500;
 
+  font-weight: var(--font-medium);
+  padding-left: var(--space-5);
   color: var(--color-black);
-  height: var(--full-width);
-  width: var(--full-height);
+  height: var(--w-full);
+  width: var(--h-full);
 }
 
 .nav-item:hover {
   cursor: pointer;
 
-  background-color: var(--color-primary-hover);
+  background-color: var(--color-primary);
 }
 
 .imgNavBar{
-  margin-right: 10px;
+  margin-right: var(--space-3);
 }
 
 .active {
@@ -60,23 +61,23 @@
 .mobileMenu {
   display: none;
   flex-direction: column;
-  background-color: rgb(226, 225, 225);
   position: fixed;
-  height: 250px;
   align-items: center;
   justify-content: center;
   top: 0;
-  z-index: 100;
+  height: 250px;
 
-  gap: var(--space-lg);
-  width: var(--full-width);
+  background-color: var(--color-gray-300);
+  z-index: var(--z-sticky);
+  gap: var(--space-5);
+  width: var(--w-full);
   transition: var(--transition-normal);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-xs);
 }
 
 .mobileMenu a {
   text-decoration: none;
-  font-weight: 500;
+  font-weight: var(--font-medium);
 
   color: var(--color-black);
 }
@@ -91,15 +92,15 @@
 
 #menuButton {
   display: none;
-  font-size: 30px;
   background: none;
   border: none;
   cursor: pointer;
   position: fixed;
-  right: 30px;
   z-index: 101;
-  top: 15px;
 
+  top: var(--space-5);
+  right: var(--space-8);
+  font-size: var(--font-3xl);
   color: var(--color-white);
 }
 
@@ -109,24 +110,25 @@
 
 .logout-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999999;
-  backdrop-filter: blur(2px);
+  top: 0;
+  left: 0;
+
+  width: var(--w-screen);
+  height: var(--h-screen);
+  z-index: var(--z-max);
+  backdrop-filter: var(--blur-sm);
 }
 
 .screenLogout {
   width: 320px;
-  padding: 25px;
-  border-radius: 12px;
   text-align: center;
   animation: pop 0.25s ease-out;
 
+  border-radius: var(--space-3);
+  padding: var(--space-5);
   background: var(--color-white);
   box-shadow: var(--shadow-lg);
 }
@@ -137,30 +139,31 @@
 }
 
 .screenLogout h2 {
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: 600;
+  margin-bottom: var(--space-5);
+  font-size: var(--font-xl);
+  font-weight: var(--font-medium);
 }
 
 .logout-buttons {
   display: flex;
   justify-content: center;
-  gap: 15px;
+
+  gap: var(--space-4);
 }
 
 .logout-buttons button {
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  font-size: 15px;
 
-  transition: var(--transition-fast);
+  font-size: var(--font-md);
+  transition: var(--transition-normal);
   border-radius: var(--radius-md);
 }
 
 .btn-yes {
+  color: var(--color-white);
   background-color: var(--color-danger);
-  color: white;
 }
 
 .btn-yes:hover {
@@ -168,7 +171,7 @@
 }
 
 .btn-no {
-  background-color: var(--color-gray);
+  background-color: var(--color-gray-400);
   color: #2c3e50;
 }
 

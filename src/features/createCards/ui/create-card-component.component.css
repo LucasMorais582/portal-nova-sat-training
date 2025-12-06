@@ -1,84 +1,94 @@
-.conteiner{
+.conteiner {
   display: grid;
   grid-auto-flow: dense;
   grid-template-columns: 96%;
   justify-content: center;
   padding-top: 80px;
+  transition: var(--transition-normal);
 }
 
-#content{
-  background-color: rgb(250, 250, 250);
+#content {
+  background-color: var(--background-color);
   justify-content: center;
-  border-radius: 5px;
-  border: 1px solid gray;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-gray-400);
   margin-top: 10px;
   padding-left: 10px;
+  color: var(--text-color);
 }
 
-#formulario{
+#formulario {
   margin-bottom: 80px;
 }
 
-#input{
-  border-radius: 10px;
+#input {
+  border-radius: var(--radius-md);
   width: 40%;
   height: 30px;
   margin-bottom: 15px;
+  border: 1px solid var(--color-gray-400);
+  background-color: var(--color-white);
+  color: var(--text-color);
 }
 
 input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched {
-  border: 1px solid red;
+  border: 1px solid var(--color-danger);
 }
 
 input.ng-valid.ng-touched,
 textarea.ng-valid.ng-touched {
-  border: 2px solid green;
+  border: 2px solid var(--color-success);
 }
 
 .error-message p {
-  color: red;
+  color: var(--color-danger);
   font-size: 12px;
   margin: -8px 0 10px 4px;
 }
 
-#buttonBackTheHome{
-  color: darkcyan;
+#buttonBackTheHome {
+  color: var(--color-info);
   height: 30px;
   width: 80px;
   text-align: center;
+  transition: var(--transition-fast);
 }
 
-#buttonBackTheHome:hover{
-  background-color: lightgray;
+#buttonBackTheHome:hover {
+  background-color: var(--color-gray-200);
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: var(--radius-full);
   width: 90px;
   height: 30px;
 }
 
-#buttonCreateCard{
-  background-color: coral;
-  color: white;
+#buttonCreateCard {
+  background-color: var(--color-primary);
+  color: var(--color-white);
   height: 40px;
   width: 100px;
   text-align: center;
-  border-radius: 15px;
+  border-radius: var(--radius-xl);
   margin-top: 20px;
   cursor: pointer;
+  transition: var(--transition-fast);
 }
 
-#buttonCreateCard:hover{
-  background-color: rgb(248, 110, 60);
+#buttonCreateCard:hover {
+  background-color: var(--color-primary-hover);
 }
 
-#textArea{
-  border-radius: 10px;
+#textArea {
+  border-radius: var(--radius-md);
   width: 40%;
   height: 100px;
   margin-bottom: 15px;
+  border: 1px solid var(--color-gray-400);
+  background-color: var(--color-white);
+  color: var(--text-color);
 }
 
-#fileDocuments{
+#fileDocuments {
   margin-bottom: 15px;
 }

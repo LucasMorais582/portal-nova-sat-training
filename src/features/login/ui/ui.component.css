@@ -7,8 +7,9 @@
   align-items: center;
   grid-template-columns: minmax(250px, 35%) minmax(250px, 35%);
   height: 100%;
-  background-color: rgb(226, 225, 225);
-  transition: all 0.3s ease-in-out;
+  background-color: var(--color-gray-200);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-lg);
 }
 
 /* =========================================================
@@ -19,76 +20,93 @@
   display: grid;
   justify-content: center;
   height: 80%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* ---------------- LOGO ---------------- */
 #containerContentLogo {
-  background-color: #fb9264;
-  border-radius: 10px 0 0 10px;
+  background-color: var(--background-register-logo);
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  box-shadow: -4px 4px 5px 2px rgba(0,0,0,0.5);
+  -webkit-box-shadow: -4px 4px 5px 2px rgba(0,0,0,0.5);
+  -moz-box-shadow: -4px 4px 5px 2px rgba(0,0,0,0.5);
 }
 
 #containerContentLogo img {
   width: clamp(250px, 35vw, 400px);
   height: clamp(250px, 35vw, 400px);
   justify-self: center;
-  transition: all 0.3s ease-in-out;
-  margin-top: 80px;
+  transition: all var(--transition-normal);
+  margin-top: 15%;
 }
 
 #fraseLogo {
-  color: black;
-  font-size: 20px;
-  font-weight: bold;
+  color: var(--color-black);
+  font-size: var(--font-xl);
+  font-weight: var(--font-bold);
   text-align: center;
   width: clamp(250px, 35vw, 400px);
-  margin-top: -130px;
+  height: 50px;
+  margin-top: -18%;
 }
 
 /* ---------------- REGISTER ---------------- */
 #containerContentRegister {
-  background: linear-gradient(
-    180deg,
-    rgb(45, 59, 59) 0%,
-    rgb(81, 137, 139) 50%,
-    rgba(11, 88, 102, 1) 100%
-  );
-  border-radius: 0 10px 10px 0;
-
+  background-color: var(--background-register-700);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  box-shadow: 4px 4px 5px 2px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 4px 4px 5px 2px rgba(0,0,0,0.5);
+  -moz-box-shadow: 4px 4px 5px 2px rgba(0,0,0,0.5);
 }
 
 /* =========================================================
    FORM GROUPS
    ========================================================= */
-.formCompleto{
+.formCompleto {
   display: flex;
   max-height: 400px;
   width: 100%;
   justify-content: center;
   align-items: center;
-  transition: all 0.3 ease;
+  transition: all var(--transition-normal);
 }
 
 #formGroupLogin,
 #formGroupRegister {
   text-align: center;
-  padding: clamp(0px, 3vw, 40px);
-  background: rgba(255, 255, 255, 0.20);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   display: none;
   justify-self: center;
-  width: 60%;
+  width: clamp(200px, 50%, 350px);
   overflow: hidden;
   pointer-events: none;
-  transition: opacity 0.35s ease, max-height 0.35s ease, transform 0.35s ease;
+  padding: clamp(0px, 3vw, 40px);
+  background: var(--background-register-700);
+  backdrop-filter: var(--blur-md);
+  -webkit-backdrop-filter: var(--blur-md);
+  border-radius: var(--radius-lg);
+  border: 1px solid #2a566d;
+  box-shadow: var(--shadow-lg);
+  transition: opacity var(--transition-normal);
+  max-height: var(--transition-normal);
+  transform: var(--transition-normal);
+}
+
+#formGroupLogin h2,
+#formGroupRegister h2{
+  color: #d0d0d0;
+  margin-bottom: var(--space-4);
+  font-weight: var(--font-medium);
+}
+
+#formGroupLogin label,
+#formGroupRegister label{
+  display: flex;
+  color: #909090;
+  font-weight: var(--font-medium);
+  font-size: var(--font-xs);
 }
 
 #formGroupLogin.open,
@@ -106,28 +124,32 @@
 
 input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched {
-  border: 1px solid red;
+  border: 1px solid var(--color-danger);
 }
 
 input.ng-valid.ng-touched,
 textarea.ng-valid.ng-touched {
-  border: 1px solid green;
+  border: 1px solid var(--color-success);
 }
 
 .error-message p {
-  color: red;
-  font-size: 12px;
+  color: var(--color-danger);
+  font-size: var(--font-xs);
   margin: -8px 0 10px 4px;
 }
 
 /* =========================================================
    INPUTS
    ========================================================= */
-#input{
-  width: 100%;
-  height: 30px;
-  margin-bottom: 10px;
-  border-radius: 10px;
+#input {
+  height: 35px;
+  border: none;
+  margin-bottom: var(--space-4);
+  border-radius: var(--radius-md);
+  background-color: var(--background-register-600);
+  color: var(--text-inverse);
+  font-weight: var(--font-medium);
+  width: var(--w-full);
 }
 
 /* =========================================================
@@ -135,77 +157,86 @@ textarea.ng-valid.ng-touched {
    ========================================================= */
 #buttonSubmitLogin,
 #buttonSubmitRegistrar {
-  width: 100%;
-  padding: 12px 20px;
-  margin-top: 10px;
-
-  background: linear-gradient(135deg, #fb9264, #e86f40);
-  color: white;
-  border: none;
-  border-radius: 12px;
-
-  font-size: 16px;
-  font-weight: 600;
   letter-spacing: 0.5px;
-
+  border: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  transition: all 0.25s ease;
+  border-radius: var(--radius-xl);
+  width: var(--w-full);
+  padding: var(--space-3) var(--space-5);
+  margin-top: var(--space-2);
+  background-color: var(--color-botton);
+  color: var(--text-inverse);
+  font-size: var(--font-md);
+  font-weight: var(--font-medium);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
 }
 
-#buttonSubmit:hover,
+#buttonSubmitLogin:hover,
 #buttonSubmitRegistrar:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
-  background: linear-gradient(135deg, #ff9f78, #f2784e);
-}
-
-#buttonSubmit:active,
-#buttonSubmitRegistrar:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.20);
 }
 
 /* =========================================================
    BOTÕES: "LOGIN" / "REGISTER" (alternância entre telas)
    ========================================================= */
-#buttonToggleLogin{
+#buttonToggleRegisterAndLogin{
   display: flex;
-  background: coral;
-  border: 1px solid black;
+  border: none;
   border-radius: 15px;
-  height: 30px;
-  width: 50px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  transition: all 0.25s ease;
-  margin-left: 75%;
+  height: 50px;
   cursor: pointer;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: 25%;
+  margin-bottom: 40%;
+
+  transition: var(--transition-normal);
+  width: var(--w-1-2);
+  background: var(--color-primary-500);
 }
 
-#buttonToggleLogin:hover {
+#buttonToggleRegisterAndLogin p{
+  color: var(--text-inverse);
+  font-size: var(--font-sm);
+  font-weight: var(--font-medium);
+  letter-spacing: 0.5px;
+}
+
+#buttonToggleRegisterAndLogin:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
-  background: coral;
+  background: var(--color-primary-400);
 }
 
-#buttonToggleRegister{
-  display: flex;
-  background: coral;
-  border: 1px solid black;
+#buttonToggleRegisterAndLoginInPhone{
+  display: none;
+  border: none;
   border-radius: 15px;
-  height: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  transition: all 0.25s ease;
-  margin-left: 75%;
+  height: 50px;
   cursor: pointer;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: var(--transition-normal);
+  width: 100px;
+  background: var(--background-register-600);
+  margin-left: 40%;
+  margin-bottom: 5%;
 }
 
-#buttonToggleRegister:hover {
+#buttonToggleRegisterAndLoginInPhone p{
+  color: var(--text-inverse);
+  font-size: var(--font-sm);
+  font-weight: var(--font-medium);
+  letter-spacing: 0.5px;
+}
+
+#buttonToggleRegisterAndLoginInPhone:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
-  background: coral;
+  background: var(--background-register-500);
 }
 
 @media (max-width: 768px) {
@@ -224,10 +255,15 @@ textarea.ng-valid.ng-touched {
     margin-top: 0;
     align-items: center;
     height: 100%;
+    border-radius: 0;
   }
 
   #formGroup {
     margin-top: 0;
     padding: 50px;
+  }
+
+  #buttonToggleRegisterAndLoginInPhone{
+    display: flex;
   }
 }

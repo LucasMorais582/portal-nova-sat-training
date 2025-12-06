@@ -1,8 +1,8 @@
-.conteiner{
+.conteiner {
   display: grid;
-
+  transition: var(--transition-normal);
 }
 
-body{
-  background-color: var(--cor-fundo);
+body {
+  background-color: var(--background-color);
 }

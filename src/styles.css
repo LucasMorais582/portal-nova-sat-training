@@ -1,17 +1,63 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(250, 250, 250)}
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
 
 :root {
   /* =======================
-     CORES PRINCIPAIS
+     🎨 PALETA DE CORES
   ======================== */
-  --color-primary: coral;
-  --color-primary-hover: rgb(248, 115, 67);
-  --color-primary-dark: #CC733E;
-  --color-primary-light: #FFB088;
-  --color-black: black;
-  --color-white: white;
-  --color-gray: rgb(185, 185, 185);
+  --background-register-logo: #ff8054;
+
+  --color-botton: #ff6a31;
+  --color-botton-dark: #e76334;
+
+  --background-color: #fafafa;
+  --header-background: black;
+  --color-primary-50: #fff4ed;
+  --color-primary-100: #ffe0d1;
+  --color-primary-200: #ffc2a3;
+  --color-primary-300: #ffa173;
+  --color-primary-400: #ff824f;
+  --color-primary-500: #ff6a31;
+  --color-primary-600: #e76334;
+  --color-primary-700: #bf4821;
+  --color-primary-800: #97391a;
+  --color-primary-900: #702b13;
+
+  --background-register-50:  #e6eef2;
+  --background-register-100: #cddde4;
+  --background-register-200: #9abacc;
+  --background-register-300: #6797b3;
+  --background-register-400: #3e748c;
+  --background-register-500: #1b4f63;
+  --background-register-600: #153f50;
+  --background-register-700: #102f3c;
+  --background-register-800: #0b2029;
+  --background-register-900: #061317;
+
+  --color-primary: var(--color-primary-500);
+  --color-primary-hover: var(--color-primary-600);
+  --color-primary-dark: var(--color-primary-800);
+  --color-primary-light: var(--color-primary-200);
+
+  --color-black: #000;
+  --color-white: #fff;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
 
   --color-success: #22c55e;
   --color-danger: #ef4444;
@@ -19,90 +65,231 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
   --color-info: #0ea5e9;
 
   /* =======================
-     CORES DE TEXTO
+     📝 TEXTOS
   ======================== */
   --text-color: #111;
   --text-light: #555;
   --text-muted: #888;
-  --text-inverse: #fff;
+  --text-inverse: white;
+
+  /* FONT SIZES (escala completa) */
+  --font-xxs: 10px;
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 18px;
+  --font-xl: 20px;
+  --font-2xl: 24px;
+  --font-3xl: 30px;
+  --font-4xl: 36px;
+  --font-5xl: 48px;
+
+  /* FONT WEIGHTS */
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-bold: 700;
+  --font-black: 900;
+
+  /* LINE HEIGHT */
+  --line-tight: 1.1;
+  --line-normal: 1.5;
+  --line-relaxed: 1.8;
 
   /* =======================
-     CORES DE FUNDO
+     📦 ESPAÇAMENTOS COMPLETOS
   ======================== */
-  --background: #ffffff;
-  --background-alt: #f6f6f9;
-  --background-gray: rgb(226, 225, 225);
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
 
   /* =======================
-     BORDAS E RADIUS
+     📏 BORDAS E RADIUS COMPLETOS
   ======================== */
+  --radius-none: 0;
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
   --radius-full: 999px;
 
-  /* =======================
-     ESPAÇAMENTOS
-  ======================== */
-  --space-xs: 5px;
-  --space-sm: 10px;
-  --space-md: 15px;
-  --space-lg: 20px;
-  --space-xl: 40px;
+  --border-thin: 1px solid #e5e7eb;
+  --border-medium: 2px solid #d1d5db;
+  --border-thick: 3px solid #9ca3af;
 
   /* =======================
-     LARGURAS E ALTURAS
+     🌫 SOMBRAS PROFISSIONAIS
   ======================== */
-  --max-width: 1200px;
-  --full-width: 100%;
-  --large-width: 90%;
-  --medium-width: 70%;
-  --small-width: 50%;
-  --width-navBar: 20%;
-
-  --header-height: 70px;
-  --footer-height: 80px;
-  --section-padding: 60px;
-  --full-height: 100%;
-  --large-height: 90%;
-  --medium-height: 70%;
-  --small-height: 50%;
-
-  /* =======================
-     SOMBRAS (BOX-SHADOWS)
-  ======================== */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
   --shadow-md: 0 4px 10px rgba(0,0,0,0.15);
-  --shadow-lg: 0 10px 30px rgba(0,0,0,0.18);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.18);
+  --shadow-xl: 0 20px 50px rgba(0,0,0,0.22);
 
   /* =======================
-     BORDER STYLES
+     📐 LARGURA E ALTURA
   ======================== */
-  --border-default: 1px solid #e0e0e0;
-  --border-light: 1px solid #f6f6f9;
-  --border-dark: 1px solid #d1d1d1;
+  --w-max: 1200px;
+  --w-screen: 100vw;
+  --w-full: 100%;
+  --w-content: 90%;
+  --w-3-4: 75%;
+  --w-2-3: 66.66%;
+  --w-1-2: 50%;
+  --w-1-3: 33.33%;
+  --w-1-4: 25%;
+  --w-1-5: 20%;
+
+  --h-full: 100%;
+  --h-screen: 100vh;
+  --h-lg: 600px;
+  --h-md: 400px;
+  --h-sm: 200px;
 
   /* =======================
-     IMAGENS
+     🎚 Z-INDEX
   ======================== */
-  --img-radius: var(--radius-md);
-  --img-shadow: var(--shadow-sm);
-  --img-overlay: rgba(0, 0, 0, 0.3);
+  --z-back: -1;
+  --z-normal: 1;
+  --z-dropdown: 50;
+  --z-sticky: 100;
+  --z-overlay: 500;
+  --z-modal: 999;
+  --z-max: 9999;
 
   /* =======================
-     TRANSIÇÕES
+     💨 TRANSIÇÕES
   ======================== */
-  --transition-fast: all 150ms ease;
-  --transition-normal: all 300ms ease;
-  --transition-slow: all 500ms ease;
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
 
   /* =======================
-     BREAKPOINTS (Responsividade)
+     🖥 BREAKPOINTS
   ======================== */
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --breakpoint-xxl: 1400px;
+  --bp-xs: 480px;
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
 
+  /* =======================
+     🔮 EFEITOS (blur, opacity)
+  ======================== */
+  --blur-sm: blur(4px);
+  --blur-md: blur(8px);
+  --blur-lg: blur(16px);
+
+  --opacity-0: 0;
+  --opacity-25: 0.25;
+  --opacity-50: 0.5;
+  --opacity-75: 0.75;
+  --opacity-100: 1;
 }
+
+:root.dark {
+  /* =======================
+     🎨 PALETA DE CORES
+  ======================== */
+
+  --header-background: #5858f8;
+
+  --background-register-logo: #12151a;
+
+  --color-botton: #1a1d22;
+  --color-botton-dark: #2a2f36;
+
+  --background-register-50: #dfe2e6;
+  --background-register-100: #c7ccd1;
+  --background-register-200: #9ea4ad;
+  --background-register-300: #757c89;
+  --background-register-400: #4d5664;
+  --background-register-500: #2a2f36;
+  --background-register-600: #1a1d22;
+  --background-register-700: #12151a;
+  --background-register-800: #0c0e11;
+  --background-register-900: #07080a;
+
+  --color-primary-50: #2b1d18;
+  --color-primary-100: #3a241b;
+  --color-primary-200: #5a2e1c;
+  --color-primary-300: #7a3a1f;
+  --color-primary-400: #a44a28;
+  --color-primary-500: #cc5b30;
+  --color-primary-600: #b5522c;
+  --color-primary-700: #8c3d22;
+  --color-primary-800: #6a2d1b;
+  --color-primary-900: #452013;
+
+  --color-primary: var(--color-primary-500);
+  --color-primary-hover: var(--color-primary-400);
+  --color-primary-dark: var(--color-primary-800);
+  --color-primary-light: var(--color-primary-200);
+
+  --color-black: #fff;
+  --color-white: #000;
+
+  --color-gray-100: #1a1a1a;
+  --color-gray-200: #1f1f1f;
+  --color-gray-300: #2a2a2a;
+  --color-gray-400: #3a3a3a;
+  --color-gray-500: #4a4a4a;
+  --color-gray-600: #5c5c5c;
+  --color-gray-700: #767676;
+  --color-gray-800: #9e9e9e;
+  --color-gray-900: #cfcfcf;
+
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --color-info: #38bdf8;
+
+  /* =======================
+     📝 TEXTOS
+  ======================== */
+  --text-color: #111;
+  --text-light: #555;
+  --text-muted: #888;
+  --text-inverse: white;
+
+  /* =======================
+     📏 BORDAS
+  ======================== */
+  --border-thin: 1px solid #2f2f2f;
+  --border-medium: 2px solid #3d3d3d;
+  --border-thick: 3px solid #4a4a4a;
+
+  /* =======================
+     🌫 SOMBRAS
+  ======================== */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.45);
+  --shadow-md: 0 4px 10px rgba(0,0,0,0.55);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.6);
+  --shadow-xl: 0 20px 50px rgba(0,0,0,0.65);
+
+  /* =======================
+     🔮 EFEITOS
+  ======================== */
+  --opacity-25: 0.20;
+  --opacity-50: 0.45;
+  --opacity-75: 0.65;
+
+  --background-color: #121212;
+}
+

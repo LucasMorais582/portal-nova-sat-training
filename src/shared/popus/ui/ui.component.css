@@ -4,21 +4,22 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, var(--opacity-50));
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999999;
+  z-index: var(--z-max);
   backdrop-filter: blur(2px);
+  transition: var(--transition-normal);
 }
 
 .popup-container {
   width: clamp(280px, 40vw, 380px);
   padding: 25px;
   height: auto;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
   text-align: center;
   animation: pop 0.25s ease-out;
 }
@@ -26,7 +27,7 @@
 .icon-wrapper {
   width: 110px;
   height: 110px;
-  border-radius: 100px;
+  border-radius: var(--radius-full);
   margin: 0 auto 10px auto;
   display: flex;
   justify-content: center;
@@ -39,15 +40,58 @@
 }
 
 .icon-success {
-  background: radial-gradient(circle, #7bff00 0%, rgba(123, 255, 0, 0) 65%);
+  background: radial-gradient(circle, var(--color-success) 0%, rgba(34, 197, 94, 0) 65%);
 }
 
 .icon-warning {
-  background: radial-gradient(circle, #ffd800 0%, rgba(255, 216, 0, 0) 65%);
+  background: radial-gradient(circle, var(--color-warning) 0%, rgba(245, 158, 11, 0) 65%);
 }
 
 .icon-error {
-  background: radial-gradient(circle, #fa5d5d 0%, rgba(255, 0, 0, 0) 65%);
+  background: radial-gradient(circle, var(--color-danger) 0%, rgba(239, 68, 68, 0) 65%);
+}
+
+#title {
+  margin-top: 10px;
+  font-size: 1.4rem;
+  font-weight: var(--font-bold);
+  color: var(--text-color);
+}
+
+#message {
+  margin: 10px 0 20px 0;
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+#buttonConfirmed,
+#buttonCancel {
+  padding: 10px 18px;
+  margin: 4px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+#buttonConfirmed {
+  background: var(--color-success);
+  color: var(--color-white);
+}
+
+#buttonCancel {
+  background: var(--color-gray-300);
+  color: var(--text-color);
+}
+
+#buttonConfirmed:hover {
+  transform: scale(1.05);
+  background: var(--color-success);
+}
+
+#buttonCancel:hover {
+  transform: scale(1.05);
+  background: var(--color-gray-400);
 }
 
 @keyframes iconBounceIn {
@@ -55,31 +99,6 @@
   40%  { transform: translateY(-12px) scale(1.1); opacity: 1; }
   70%  { transform: translateY(6px) scale(0.95); }
   100% { transform: translateY(0) scale(1); }
-}
-
-#title { margin-top: 10px; font-size: 1.4rem; font-weight: 600; }
-#message { margin: 10px 0 20px 0; font-size: 1rem; }
-
-#buttonConfirmed, #buttonCancel {
-  padding: 10px 18px;
-  margin: 4px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-#buttonConfirmed { background: #4CAF50; color: white; }
-#buttonCancel { background: #d4d4d4; }
-
-#buttonConfirmed:hover {
-  transform: scale(1.05);
-  background: #43a047;
-}
-
-#buttonCancel:hover {
-  transform: scale(1.05);
-  background: #b5b5b5;
 }
 
 @keyframes pop {

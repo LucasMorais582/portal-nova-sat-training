@@ -1,36 +1,38 @@
-#header{
-  background-color: black;
+#header {
+  background-color: var(--header-background);
   height: 60px;
   display: flex;
   align-items: center;
   z-index: 100;
   position: fixed;
   width: 100%;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
 }
 
-#logoFrase{
+#logoFrase {
   position: absolute;
   left: 100px;
 }
 
-#logoFrase a{
+#logoFrase a {
   text-decoration: none;
-  color: white;
+  color: var(--text-inverse);
   font-weight: bold;
 }
 
 #logoFrase a:hover {
   text-decoration: underline;
-  color: gray;
+  color: var(--color-gray-500);
 }
 
-#logo{
-  background-color: coral;
+#logo {
+  background-color: var(--color-primary);
   border-radius: 30px;
   height: 45px;
   margin-top: 5px;
 }
 
-#logoLink{
+#logoLink {
   margin-left: 30px;
 }

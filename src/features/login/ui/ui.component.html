@@ -1,24 +1,39 @@
 <div class="containerPrincipal">
+
   <div id="containerContentLogo">
-    <img src="assets/image/corujaLogin.png" alt="Logo Coruja">
+
+    <img src="assets/image/corujaLogin.png" alt="Logo Coruja" />
+
     <p id="fraseLogo">
       Faça o login para entrar no portal, ou crie uma nova conta!
     </p>
+
+    <button
+      id="buttonToggleRegisterAndLogin"
+      type="button"
+      (click)="toggleMenu()"
+    >
+      <p *ngIf="!menuIsOpen">Criar conta</p>
+      <p *ngIf="menuIsOpen">Ir para Login</p>
+    </button>
+
   </div>
+
   <div id="containerContentRegister">
+
+    <button
+      id="buttonToggleRegisterAndLoginInPhone"
+      type="button"
+      (click)="toggleMenu()"
+    >
+      <p *ngIf="!menuIsOpen">Criar conta</p>
+      <p *ngIf="menuIsOpen">Ir para Login</p>
+    </button>
     <form  class="formCompleto" #formulario = 'ngForm'>
 
       <div id="formGroupRegister" [class.open]="menuIsOpen">
 
-        <button
-          id="buttonToggleLogin"
-          type="button"
-          (click)="toggleMenu()"
-        >
-          <p>Login</p>
-        </button>
-
-        <h2 id="titleRegister">Faça o Registro</h2>
+        <h2 id="titleRegister">Bem-vindo de volta!</h2>
 
         <label for="name">Nome:</label>
         <input
@@ -80,15 +95,7 @@
       </div>
       <div id="formGroupLogin" [class.open]="!menuIsOpen">
 
-        <button
-          id="buttonToggleRegister"
-          type="button"
-          (click)="toggleMenu()"
-        >
-          <p>Register</p>
-        </button>
-
-        <h2 id="titleRegister">Faça o Login</h2>
+        <h2 id="titleRegister">Bem-vindo de volta!</h2>
 
         <label for="email">Email:</label>
         <input
@@ -166,3 +173,4 @@
 
   </div>
 </div>
+

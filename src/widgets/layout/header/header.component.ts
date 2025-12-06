@@ -10,7 +10,4 @@ import { RouterLink } from "@angular/router";
 export class HeaderComponent {
   clicked = output<void>();
 
-  notifyParent(){
-    this.clicked.emit();
-  }
 }

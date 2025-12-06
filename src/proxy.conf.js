@@ -1,17 +1,10 @@
-const numero = 3000;
-
 const PROXY_CONFIG = {
-  '/users/*': {
-    target: `https://fluffy-succotash-4p4j55vpgg5277jp-${{numero}}.app.github.dev/`,
-    pathRewrite: {
-      '^/users': '/users',
-    },
-    logLevel: 'debug',
+  '/users': {
+    target: 'http://localhost:3000',
     secure: false,
-    changeOrigin: false,
+    changeOrigin: true,
+    logLevel: 'debug',
   }
 };
 
-
 module.exports = PROXY_CONFIG;
-

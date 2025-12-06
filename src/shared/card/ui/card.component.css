@@ -1,58 +1,59 @@
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
+  gap: var(--space-5);
   margin-left: 260px;
-  padding: 20px;
-  margin-top: 80px;
-  transition: margin-left 0.3s ease-in-out;
+  padding: var(--space-5);
+  margin-top: var(--space-20);
+  transition: var(--transition-normal);
 }
 
 .card {
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: var(--color-white);
+  border: var(--border-thin);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
+  color: var(--text-color);
   text-align: start;
 }
 
 .card:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  transition: all 0.3s ease-in-out;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
 }
 
-#colorInCard{
+#colorInCard {
   height: 2px;
-  background-color: coral;
+  background-color: var(--color-primary-500);
 }
 
-#numberPaIc{
-  margin-bottom: 30px;
-  background-color: #d7d7d7;
-  border-radius: 10px;
+#numberPaIc {
+  margin-bottom: var(--space-8);
+  background-color: var(--color-gray-200);
+  border-radius: var(--radius-md);
   width: 190px;
 }
 
-#objective{
-  font-weight: bold;
-  margin-bottom: -15px;
+#objective {
+  font-weight: var(--font-bold);
+  margin-bottom: calc(var(--space-4) * -1);
 }
 
-#description{
-  font-weight: bold;
-  margin-top: 30px;
-  margin-bottom: -15px;
+#description {
+  font-weight: var(--font-bold);
+  margin-top: var(--space-6);
+  margin-bottom: calc(var(--space-4) * -1);
 }
 
-#notHaveCards{
+#notHaveCards {
   display: grid;
   justify-content: center;
   grid-template-columns: 60%;
   margin-left: 20%;
   text-align: center;
-  margin-top: 130px;
-  transition: margin-left 0.3s ease-in-out;
+  margin-top: var(--space-24);
+  transition: margin-left var(--transition-normal);
 }
 
 @media (max-width: 768px) {
@@ -61,9 +62,8 @@
     grid-template-columns: 1fr;
   }
 
-  #notHaveCards{
+  #notHaveCards {
     grid-template-columns: 80%;
     margin-left: 0;
   }
 }
-
